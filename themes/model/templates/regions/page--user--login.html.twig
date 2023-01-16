@@ -1,0 +1,55 @@
+<!-- Header -->
+{% embed 'region--header.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+<!--End Header -->
+<style type="text/css">
+  select,input{
+    width: 100% !important;
+  }
+  .button--primary{
+    width:auto !important;
+  }
+</style>
+
+
+<div class="row margin-bottom-40" style="margin-right:0px !important;">
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix active"><a href="{{base_path}}user/login"><i class="fa fa-angle-right"></i> Login</a></li>
+              <li class="list-group-item clearfix"><a href="{{base_path}}user/register"><i class="fa fa-angle-right"></i> Create Agency Account</a></li>
+              <li class="list-group-item clearfix"><a href="{{base_path}}user/password"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-9">
+            <h1>Login</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-7 col-sm-7">
+                 {{page.content}}
+                </div>
+                <div class="col-md-4 col-sm-4 pull-right">
+                  <div class="form-info">
+                    <h2><em>Important</em> Information</h2>
+                    <p>Lorem ipsum dolor ut sit ame dolore  adipiscing elit, sed sit nonumy nibh sed euismod ut laoreet dolore magna aliquarm erat sit volutpat. Nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip  commodo quat.</p>
+
+                    <p>Duis autem vel eum iriure at dolor vulputate velit esse vel molestie at dolore.</p>
+
+                    <button type="button" class="btn btn-default">More details</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+
+
+ {% embed 'region--footer.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+

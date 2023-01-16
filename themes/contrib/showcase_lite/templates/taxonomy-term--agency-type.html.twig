@@ -1,0 +1,32 @@
+<style type="text/css">
+.field.field--name-name.field--type-string.field--label-hidden.field__item {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+h2.title, nav > h2, .block-search > h2 {
+    font-size: 18px;
+    padding-bottom: 15px;
+    margin: 0 0 11px 0;
+    border-bottom: 1px solid #e7e7e7;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+</style>
+{%
+  set classes = [
+    'taxonomy-term',
+    'vocabulary-' ~ term.bundle|clean_class,
+  ]
+%}
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+  {{ title_prefix }}
+  {% if name and not page %}
+    <h2><a href="{{ url }}">{{ name }}</a></h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div class="content">
+    {{ content }}
+  </div>
+</div>

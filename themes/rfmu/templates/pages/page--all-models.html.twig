@@ -1,0 +1,28 @@
+<!-- Header -->
+{% embed 'region--header.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+<!--End Header -->
+<section class="hero-wrap" style="background-image: url({{active_theme_path()}}/images/bg_2.jpg);" data-stellar-background-ratio="0.5">
+      	<div class="overlay"></div>
+	      <div class="container">
+	        <div class="row no-gutters text align-items-end justify-content-center" data-scrollax-parent="true">
+	          <div class="col-md-8 ftco-animate text-center">
+	            <p class="breadcrumbs"><span class="mr-2"><a href="{{base_path}}">Home</a></span> <span>Model</span></p>
+	            <h1 class="mb-5 bread">Model</hs1>
+	          </div>
+	        </div>
+	      </div>
+      </section>
+<!-- Home Slider -->
+{#
+{% embed 'region--home_slider.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+#}
+<!--End Home Slider -->
+{{page.content}}
+
+ {% embed 'region--footer.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}

@@ -1,0 +1,29 @@
+<?php
+
+/*
+Initially, you have to write the preprocess code in the .theme file to get the required 
+fields data like author uid, target_id, and other required values. */
+
+function rfmu_preprocess_node(&$variables) {
+/*first we have to check, for which type of content the author belongs to */
+if(($bundle_author == 'article') && $author_view_mode == 'full'){
+/* if author has the content then get the node of the author in this variable */
+    $node = $variables['node'];
+/* getting author uid */
+    $node_author = $node->get('uid')->getValue();
+/* getting author target_id */
+    $node_author_uid = $node_author[0]['target_id'];
+/* finally loading the author in the final variable */
+    $author = User::load($node_author_uid);
+/* getting the entity type */
+    $entity_type = 'user';
+    $entity_id = $node_author_uid;
+/* assigning the view mode machine name */
+    $view_mode = 'view_mode_name';
+    $entity = \Drupal::entityTypeManager()->getStorage($entity_type)->load($entity_id);
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder($entity_type);
+    $pre_render = $view_builder->view($entity, $view_mode);
+    $variables['author'] = $pre_render;
+}
+}
+/*after this preprocess function you can able to print the author variable with all the enabled view mode fields.*/

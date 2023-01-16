@@ -1,0 +1,52 @@
+<div id="project" class="project">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Featured Models<a href="" style="float:right;font-size:13px;">See more >></a></h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+            <div class="product_main">
+                {% for model in featured_models %}
+             
+                  <div class="project_box ">
+                    <a href="{{base_path}}/agency_models/{{model.agency_id}}">
+                     <div class="" ><img  src="{{model.model_profile |file_url}}" alt="#"/>
+                     </div>
+                 </a>
+                     <h3>{{model.agency_name }}'s Top Models</h3>
+                     <small class="text-black">Created by: {{model.agency_name}}</small>
+        <img src="{{base_path}}{{ active_theme_path()}}/images/verify-icon.png" style="
+    position: relative;
+    width: 9px;
+    display: inline-flex;
+">
+                  </div>
+                  {% endfor %}
+
+                  <div class="project_box ">
+                    <a href="">
+                     <div class="" ><img  src="{{base_path}}{{active_theme_path()}}/images/rmodels.jpeg" alt="#"/>
+                     </div>
+                 </a>
+                     <h3>'s Top Models</h3>
+                     <small class="text-black">Created by: </small>
+        <img src="{{base_path}}{{ active_theme_path()}}/images/verify-icon.png" style="
+    position: relative;
+    width: 9px;
+    display: inline-flex;
+">
+                  </div>
+              
+              <!--  <div class="col-md-12">
+                  <a class="read_more" href="#">See More</a>
+               </div> -->
+            </div>
+            </div>
+         </div>
+      </div>
+
+
+

@@ -1,0 +1,29 @@
+{% if logged_in %}
+    <div class="user-detail-wrap dropdown"> 
+        <a href="javascript:void(0);" class="btn" data-toggle="dropdown">
+            {% if agency_logo is not empty %}
+              <img class="user-img" style="width:35px;height:35px;border-radius: 17px;" src="{{ agency_logo | file_url }}" data-no-retina="" title="{{user_name}}">&nbsp;<span class="caret"></span>
+            {% else %}
+              <img style="width:35px;height:35px;" src="{{ base_path }}/{{ active_theme_path() }}/images/default-user.png" alt="Default Image" title="{{loggedin_user_name}}">&nbsp;<span class="caret"></span>
+            {% endif %}
+            <span class="user-name"><div class="user_name" title=""></div></span>
+            
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ base_path }}/user/{{user.id}}/edit">My Account</a></li>
+            <li><a href="{{ base_path }}/node/add/model">Add Model</a></li>
+            <li><a href="{{ base_path }}/node/add/model">Update Model</a></li>
+            <li><a href="{{ base_path }}/node/add/model">View My Models</a></li>
+            <li><a href="{{ base_path }}/user/logout">Logout</a></li>
+        </ul>
+    </div>
+     <div class="menu-toggle-btn">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  {% else %}
+    <div class="user-detail-wrap dropdown login">
+     <a href="{{ base_path }}/user">Join</a>
+    </div>
+  {% endif %}

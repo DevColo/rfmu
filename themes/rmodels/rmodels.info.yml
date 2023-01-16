@@ -1,0 +1,32 @@
+name: RModels Theme
+description: 'Rwandan Fashion Model Union theme'
+type: theme
+package: Other
+core_version_requirement: ^8 || ^9
+
+libraries:
+  - rmodels/global-styling
+
+base theme: olivero
+
+regions:
+  header_top_right: Header Top Right
+  header_top_middle: Header Top Middle
+  header_top_left: Header Top Left
+  nav_branding: Navigation branding region
+  header: Header
+  main_menu: Main Menu Region
+  nav_main: Main navigation region
+  nav_additional: Additional navigation region (eg search form, social icons, etc)
+  breadcrumb: Breadcrumbs
+  home_slider: Homepage Silder
+  trending: Trending
+  featured_models: Featured Models
+  content_top: Top Models
+  content: Main content
+  article: Article
+  left_side_bar: Left Side Bar
+  right_side_bar: Right Side Bar
+  footer: Footer
+
+screenshot: rmodels.jpeg

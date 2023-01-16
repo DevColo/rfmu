@@ -1,0 +1,24 @@
+{% set project = query.entries
+              .type('model')
+              .orderBy('field_model_rank.value ASC')
+              .limit(5)
+              .all()
+           %}
+           
+<div class="col-md-12">
+            <div class="owl-carousel owl-carousel4 owl-theme owl-loaded" style="display:inline-flex;">
+              {% for model in project %}
+              <div class="recent-work-item">
+                <em>
+                  <img src="{{ model.field_model_profile|file_url }}" alt="Amazing Project" class="img-responsive" style="width:607px;height: 210px;">
+                  <a href="portfolio-item.html"><i class="fa fa-link"></i></a>
+                  <a href="assets/pages/img/frontend-slider/bg_3.jpg" class="fancybox-button" title="Fifi Mugisha" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                </em>
+                <a class="recent-work-description" href="javascript:;">
+                  <strong>{{model.title.value}}</strong>
+                  <b>{{ model.Owner.field_agency_name.value }}</b>
+                </a>
+              </div>
+              {%endfor%}
+            </div>       
+</div>

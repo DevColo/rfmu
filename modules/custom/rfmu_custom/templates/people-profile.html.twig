@@ -1,0 +1,40 @@
+<div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    
+                    <img class="rounded-circle" src="{{people_pic}}" title="{{ first_name }} {{ last_name }}">
+                    <div class="mt-3">
+                      <h4>{{ first_name }} {{ last_name }}</h4>
+                      <p class="text-secondary mb-1"><b>{{user_people_role}}</b></p>
+                      <p class="text-secondary mb-1">{{country_name}}, {{state_name}}</p>
+                      <button class="btn btn-primary">Follow</button>
+                      <button class="btn btn-outline-primary">Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div class="col-md-8">
+              <div class="tabs">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#profile" data-toggle="tab" aria-expanded="true" >Profile</a>
+                  </li>
+                  <li class="">
+                    <a href="#bio" data-toggle="tab" aria-expanded="false">Bio</a>
+                  </li>
+                </ul>
+                <div class="tab-content" style="display: grid;">
+                  <div id="profile" class="tab-pane active">
+                    <p><b>Phone:</b> {{ people_phone }}</p>
+                    <p><b>Date of birth:</b> {{ dob }}</p>
+                    <p><b>Join:</b> {{ created }}</p>
+                  </div>
+                  <div id="bio" class="tab-pane active">
+                    <p>{{ people_profile }}</p>
+                  </div>
+                </div>
+              </div>
+    </div>

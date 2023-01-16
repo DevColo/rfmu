@@ -1,0 +1,236 @@
+<?php
+
+/**
+ * @file
+ * The primary PHP file for the Drupal Bootstrap base theme.
+ *
+ * This file should only contain light helper functions and point to stubs in
+ * other files containing more complex functions.
+ *
+ * The stubs should point to files within the `./includes` directory named after
+ * the function itself minus the theme prefix. If the stub contains a group of
+ * functions, then please organize them so they are related in some way and name
+ * the file appropriately to at least hint at what it contains.
+ *
+ * All [pre]process functions, theme functions and template files lives inside
+ * the `./templates` directory. This is a highly automated and complex system
+ * designed to only load the necessary files when a given theme hook is invoked.
+ *
+ * Visit this project's official documentation site https://drupal-bootstrap.org
+ * or the markdown files inside the `./docs` directory.
+ *
+ * @see bootstrap_theme()
+ * @see \Drupal\bootstrap\Registry
+ */
+
+use Drupal\bootstrap\Bootstrap;
+use Drupal\user\Entity\User;
+use Drupal\file\Entity\File;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+ * Initialize the active theme.
+ */
+Bootstrap::initialize();
+
+/**
+ * {@inheritdoc}
+ *
+ * @see hook_bootstrap_colorize_text_alter()
+ */
+function bootstrap_bootstrap_colorize_text_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see hook_bootstrap_iconize_text_alter()
+ */
+function bootstrap_bootstrap_iconize_text_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see hook_bootstrap_layouts_class_options_alter()
+ */
+function bootstrap_bootstrap_layouts_class_options_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Plugin\Alter\ElementInfo::alter()
+ */
+function bootstrap_element_info_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Theme::alter()
+ */
+function bootstrap_form_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Plugin\Form\SystemThemeSettings::alterForm()
+ */
+function bootstrap_form_system_theme_settings_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ */
+function bootstrap_js_settings_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Plugin\Alter\LibraryInfo::alter()
+ */
+function bootstrap_library_info_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Plugin\Alter\PageAttachments::alter()
+ */
+function bootstrap_page_attachments_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Bootstrap::preprocess()
+ */
+function bootstrap_preprocess(&$variables, $hook, $info) {
+  Bootstrap::preprocess($variables, $hook, $info);
+  $variables['base_path'] = $GLOBALS['base_url'];
+  $variables['base_url'] = $GLOBALS['base_url'];
+
+  $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  //$uid= $user->get('uid')->value;
+
+  $account_type = \Drupal\taxonomy\Entity\Term::load($user->field_account_type->target_id);
+  if(!empty($account_type)){
+    $user_account_type = $account_type->name->value;
+  }else{
+    $user_account_type = '';
+  }
+  
+  $country_id = $user->field_agency_address->country;
+  $country = \Drupal::database()->select('countrylist_field_data','cl')->condition('cl.id',$country_id)->fields('cl')->execute()->fetchAll();
+  if(!empty($country)){
+    $country_name = $country[0]->name;
+  }else{
+    $country_name = '';
+  }
+    
+
+  $state_id = $user->field_agency_address->state;
+  $state = \Drupal::database()->select('statelist_field_data','sl')->condition('sl.id',$state_id)->fields('sl')->execute()->fetchAll();
+  if(!empty($state)){
+    $state_name = $state[0]->name;
+  }else{
+    $state_name = '';
+  }
+    
+  if(!empty($user->field_agency_bio->value)){
+    $bio = $user->field_agency_bio->value;
+  }else{
+    $bio = '';
+  }
+
+  if(!empty($user->field_agency_cell->value)){
+    $cell = $user->field_agency_cell->value;
+  }else{
+    $cell = '';
+  }
+    
+  if(!empty($user->field_agency_name->value)){
+    $agency_name = $user->field_agency_name->value;
+  }else{
+    $agency_name = '';
+  }
+
+  if(!empty($user->field_agency_website->uri)){
+    $website = $user->field_agency_website->uri;
+  }else{
+    $website = '';
+  } 
+    
+  if(!empty($user->mail->value)){
+    $email = $user->mail->value;
+  }else{
+    $email = '';
+  }
+    
+  $file = File::load($user->user_picture->target_id);
+  if(!empty($file)){
+    $agency_logo = $file->getFileUri();
+  }else{
+    $agency_logo ='';
+  }
+  $variables['user_account_type'] = $user_account_type;
+  $variables['country_name'] = $country_name;
+  $variables['state_name'] = $state_name;
+  $variables['agency_bio'] = $bio;
+  $variables['agency_cell'] = $cell;
+  $variables['agency_name'] = $agency_name;
+  $variables['website'] = $website;
+  $variables['agency_email'] = $email;
+  $variables['agency_logo'] = $agency_logo;
+
+  // $entity = \Drupal::entityTypeManager()->getStorage('user')->create(array());
+  //   $formObject = \Drupal::entityTypeManager()
+  //     ->getFormObject('user', 'register')
+  //     ->setEntity($entity);
+  //   $form = \Drupal::formBuilder()->getForm($formObject);
+  //   $variables['register_form'] = \Drupal::service('renderer')->render($form);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Bootstrap::getInfo()
+ */
+function bootstrap_theme() {
+  return Bootstrap::getThemeHooks();
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Plugin\Alter\ThemeRegistry::alter()
+ *
+ * @todo Remove once a proper replacement for the theme.registry service can be
+ * created in a bootstrap_core sub-module.
+ */
+function bootstrap_theme_registry_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+
+/**
+ * {@inheritdoc}
+ *
+ * @see \Drupal\bootstrap\Plugin\Alter\ThemeSuggestions::alter()
+ */
+function bootstrap_theme_suggestions_alter(&$data, &$context1 = NULL, &$context2 = NULL) {
+  Bootstrap::alter(__FUNCTION__, $data, $context1, $context2);
+}
+

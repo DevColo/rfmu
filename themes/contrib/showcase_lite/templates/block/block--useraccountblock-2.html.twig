@@ -1,0 +1,39 @@
+{% if logged_in %}
+    <div class="user-detail-wrap dropdown" style="text-align: end;width: auto;"> 
+        <a href="javascript:void(0);" class="btn" data-toggle="dropdown">
+            {% if agency_logo is not empty %}
+              <img class="user-img" style="width:35px;height:35px;border-radius: 17px;" src="{{ agency_logo | file_url }}" data-no-retina="" title="{{user_name}}">&nbsp;<span class="caret"></span>
+            {% else %}
+              <img style="width:35px;height:35px;" src="{{ base_path }}/{{ active_theme_path() }}/images/default-user.png" alt="Default Image" title="{{loggedin_user_name}}">&nbsp;<span class="caret"></span>
+            {% endif %}
+            <span class="user-name"><div class="user_name" title=""></div></span>
+            
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ base_path }}/rfmu-user/{{user.id}}">My Account</a></li>
+            <li><a href="{{ base_path }}/user/{{user.id}}/edit">Edit My Profile</a></li>
+            <li><a href="{{ base_path }}/user/logout">Logout</a></li>
+        </ul>
+    </div>
+     <div class="menu-toggle-btn">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+  {% else %}
+    <div class="user-detail-wrap dropdown login">
+     <a href="{{ base_path }}/user">Join</a>
+    </div>
+  {% endif %}
+  <div class="dropdown" id="custom-mobile-menu">
+  <button class="btn-menu dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-bars text-white"></i></button>
+  <ul class="dropdown-menu" style="left: -297px;
+    text-align: center;
+    background: #fff;">
+    <li><a href="{{ base_path }}">Home</a></li>
+    <li><a href="{{ base_path }}/blog-landing-page">News</a></li>
+    <li><a href="{{ base_path }}/about-us">About Us</a></li>
+    <li><a href="{{ base_path }}/about-us">Agencies</a></li>
+    <li><a href="{{ base_path }}/people">People</a></li>
+  </ul>
+</div>

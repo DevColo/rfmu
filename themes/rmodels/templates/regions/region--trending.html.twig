@@ -1,0 +1,24 @@
+ {% set work = query.entries
+              .type('work')
+              .orderBy('field_model_rank.value ASC')
+              .limit(6)
+              .all()
+           %}
+ <!-- trending section -->
+      <div class="six_box">
+         <div class="container-fluid">
+            <div class="row">
+            {% for trending in work %}
+               <div class="col-md-2 col-sm-4 pa_left">
+                  <a href="{{base_path}}work/{{trending.nid.value}}">
+                  <div class="six_probpx gray_bg">
+                     <i><img src="{{ trending.field_work_cover|file_url }}" alt="#"/></i>
+                     <span>{{ trending.title.value }}</span>
+                  </div>
+               </a>
+               </div>
+            {%endfor%}
+            </div>
+         </div>
+      </div>
+      <!-- end trending section -->

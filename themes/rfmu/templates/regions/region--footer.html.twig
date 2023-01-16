@@ -1,0 +1,86 @@
+<section class="ftco-quote ftco-animate">
+	    	<div class="container">
+	    		<div class="row d-flex">
+	    			<div class="col-md-9 req-quote py-5 align-items-center img" style="background-image: url({{ active_theme_path() }}/images/bg_1.jpg);">
+		    			<h3 class="ml-md-3">Wanna be a Model?</h3>
+		    			<span class="ml-md-3"><a href="#">Call us now to know how!</a></span>
+	    			</div>
+	    		</div>
+	    	</div>
+	    </section>
+<footer class="ftco-footer ftco-section img">
+	    	<div class="overlay"></div>
+	      <div class="container">
+	        <div class="row mb-5">
+	         <!--  <div class="col-md-3">
+	            <div class="ftco-footer-widget mb-4">
+	              <h2 class="ftco-heading-2">Look</h2>
+	              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+	                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+	                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+	                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+	              </ul>
+	            </div>
+	          </div> -->
+	          <div class="col-md-4">
+	            <div class="ftco-footer-widget mb-4">
+	              <h2 class="ftco-heading-2">Recent Blog</h2>
+	              {%
+set article = query.entries
+.type('article')
+.orderBy('created ASC')
+.limit(2)
+.all()
+%}
+{% for article in article %}
+	              <div class="block-21 mb-4 d-flex">
+	                <a class="blog-img mr-4" style="background-image: url({{ article.field_image|file_url }});"></a>
+	                <div class="text">
+	                  <h3 class="heading"><a href="#">{{article.title.value}}</a></h3>
+	                  <div class="meta">
+	                    <div><a href="#"><span class="icon-calendar"></span>{{ article.published_at.value|date("F d, Y") }}</a></div>
+	                    <div><a href="#"><span class="icon-person"></span>{{ article.Owner.name.value }}</a></div>
+	                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+	                  </div>
+	                </div>
+	              </div>
+	              {%endfor%}
+	              
+	            </div>
+	          </div>
+	          <div class="col-md-2">
+	             <div class="ftco-footer-widget mb-4 ml-md-4">
+	              <h2 class="ftco-heading-2">Site Links</h2>
+	              <ul class="list-unstyled">
+	                <li><a href="#" class="py-2 d-block">Home</a></li>
+	                <li><a href="#" class="py-2 d-block">About</a></li>
+	                <li><a href="#" class="py-2 d-block">Model</a></li>
+	                <li><a href="#" class="py-2 d-block">Services</a></li>
+	                <li><a href="#" class="py-2 d-block">Blog</a></li>
+	              </ul>
+	            </div>
+	          </div>
+	          <div class="col-md-3">
+	            <div class="ftco-footer-widget mb-4">
+	            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+	            	<div class="block-23 mb-3">
+		              <ul>
+		                <li><i class="icon icon-map-marker"></i><p class="text">N0 735/RGB/NGO/0C/06/2020, Sonatube, kicukiro, kigali, Rwanda</p></li>
+		                <li><a href="#"><i class="icon icon-phone"></i><p class="text">+250780256609</p></a></li>
+		                <li><a href="mailto:rwandafashionmodelsunion@gmail.com"><i class="icon icon-envelope"></i><p class="text"> rwandafashion<br>modelsunion@gmail.com</p></a></li>
+		              </ul>
+		            </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="col-md-12 text-center">
+
+	            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Rwanda Fashion Model Union | Powered by <a href="#" target="_blank">Code ET</a>
+	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	          </div>
+	        </div>
+	      </div>
+	    </footer>

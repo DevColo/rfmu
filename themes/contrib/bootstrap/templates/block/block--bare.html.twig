@@ -1,0 +1,275 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a bare minimum block.
+ *
+ * Available variables:
+ * - $block->subject: Block title.
+ * - $content: Block content.
+ * - $block->module: Module that generated the block.
+ * - $block->delta: An ID for the block, unique within each module.
+ * - $block->region: The block region embedding the current block.
+ * - $classes: String of classes that can be used to style contextually through
+ *   CSS. It can be manipulated through the variable $classes_array from
+ *   preprocess functions. The default values can be one or more of the
+ *   following:
+ *   - block: The current template type, i.e., "theming hook".
+ *   - block-[module]: The module generating the block. For example, the user
+ *     module is responsible for handling the default user navigation block. In
+ *     that case the class would be 'block-user'.
+ * - $title_prefix (array): An array containing additional output populated by
+ *   modules, intended to be displayed in front of the main title tag that
+ *   appears in the template.
+ * - $title_suffix (array): An array containing additional output populated by
+ *   modules, intended to be displayed after the main title tag that appears in
+ *   the template.
+ *
+ * Helper variables:
+ * - $classes_array: Array of html class attribute values. It is flattened
+ *   into a string within the variable $classes.
+ * - $block_zebra: Outputs 'odd' and 'even' dependent on each block region.
+ * - $zebra: Same output as $block_zebra but independent of any block region.
+ * - $block_id: Counter dependent on each block region.
+ * - $id: Same output as $block_id but independent of any block region.
+ * - $is_front: Flags true when presented in the front page.
+ * - $logged_in: Flags true when the current user is a logged-in member.
+ * - $is_admin: Flags true when the current user is an administrator.
+ * - $block_html_id: A valid HTML ID and guaranteed unique.
+ *
+ * @ingroup templates
+ *
+ * @see bootstrap_preprocess_block()
+ * @see template_preprocess()
+ * @see template_preprocess_block()
+ * @see bootstrap_process_block()
+ * @see template_process()
+ */
+#}
+<style type="text/css">
+  .views-field.views-field-field-photo-persons>.field-content>a {
+    font-weight: bold;
+    color: black;
+}
+  .views-field.views-field-title>.field-content>a{
+    color: black;
+  }
+  .views-field.views-field-field-photo-persons {
+    margin: auto;
+    text-align: center;
+    width: 77%;
+  }
+  .navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>li>a:active, .navbar-default .navbar-nav>li>a:hover {
+    color: #333;
+    color:#4dc337;
+    transition:1s;
+  }
+  nav#block-headermenu {
+    z-index: 9999;
+  }
+.input-group {
+    width: 100%;
+    margin: auto;
+    margin-top: 8px;
+    margin-right: 0;
+}
+  form#search-block-form {
+    width: auto;
+    margin: auto;
+    float: right;
+    /* margin-top: 9px; */
+    margin-right: 0;
+}
+/*div#block-searchform {
+    position: relative;
+     float: right; 
+    display: inline-block;
+    right: 45px;
+}*/
+div#block-searchform {
+    position: relative;
+    float: right;
+    display: inline-block;
+    padding-right: 75px;
+}
+/*  div#block-searchform {
+    position: absolute;
+    float: right;
+    display: inline-block;
+}*/
+  input#edit-keys {
+    background: #ffffff;
+  }
+  .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 15px 5px;
+  }
+  section#block-views-block-trending-block-block-1 {
+    margin-top: 23px;
+  }
+  a.logo.navbar-btn.pull-left>img {
+        width: 35px;
+    height: 33px;
+    border-radius: 17px;
+  }
+  h2.block-title {
+    font-size: 18px;
+  }
+  .navbar-default .navbar-brand {
+    color: #000;
+  }
+  .navbar-default {
+    background-color: #f8f8f8;
+    /* border-color: #18e63112; */
+    box-shadow: 0 0 7px 1px #40444000;
+    margin: auto;
+    border: none;
+}
+  .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px 15px 1px !important;
+    font-size: 12px !important;
+    line-height: 20px;
+}
+.navbar-text:hover{
+  cursor:pointer;
+}
+.text-black,.navbar-nav>li>a,.navbar-text{
+  color:#000 !important;
+}
+.input-group input[type=search]:focus {width: 100%;}
+.user-detail-wrap.dropdown {
+    width: fit-content;
+    margin: 0;
+    display: inline-flex;
+    float: right;
+        z-index: 9;
+}
+body {
+  font-family: "Trirong", serif !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+}
+h2.block-title {
+    font-size: 18px;
+    font-family:fantasy;
+}
+  @media (min-width: 768px){
+    .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+        position: absolute;
+    }
+    .navbar-nav {
+        float: right !important;
+        margin: 0;
+    }
+}
+  .dropdown-menu {
+    left: auto;
+    right: 13%;
+  }
+  .user_img{
+    width:35px;
+    height:35px;
+    border-radius: 17px;
+  }
+
+  
+.user-detail-wrap.dropdown {
+    width: fit-content;
+    margin: 0;
+    display: inline-flex;
+    float: right;
+    z-index: 9;
+}
+.user-detail-wrap.dropdown {
+    width: fit-content;
+    margin: 0;
+    display: inline-flex;
+    float: right;
+    z-index: 9;
+}
+.user-detail-wrap.dropdown {
+    width: fit-content;
+    margin: 0;
+    display: inline-flex;
+    float: right;
+    z-index: 9;
+}
+.user-detail-wrap.dropdown {
+    width: fit-content;
+    margin: 0;
+    display: inline-flex;
+    float: right;
+    z-index: 9;
+}
+.login {
+    margin: auto;
+    position: relative;
+    top: 10px;
+    background: #1d5812;
+    padding: 6px 11px;
+    border-radius: 4px;
+    font-size: 12px;
+    right: 13px;
+}
+.login:hover{
+  cursor:pointer;
+  background:#337ab7;
+  transition:1s;
+}
+.login>a{
+  color:#fff;
+}
+.login>a:hover{
+  text-decoration:none;
+}
+button.button.js-form-submit.form-submit.btn-primary.btn.icon-only{
+    color: #827e7e;
+    background: #fff;
+    border: 1px solid #cac6c6;
+}
+.inline-flex {
+    display: inline-flex;
+  }
+  [class^="icon-"], [class*=" icon-"] {
+    line-height: inherit !important;
+}
+
+.footer-16371 {
+    padding: 0rem 0 !important;
+}
+  .footer-16371 .footer-site-logo {
+    text-align: center;
+    font-size: 15px !important;
+    font-weight: 100 !important;
+    border-bottom: 1px solid #e4e1e1;
+    background: whitesmoke;
+    font-family: monospace;
+    padding: 5px;
+}
+.footer-16371 .footer-site-logo a {
+    color: #000000 !important;
+}
+
+  .footer {
+    padding-top: 0 !important;
+  }
+  .footer-16371 .nav-links {
+    padding: 0;
+    margin: 15px !important;
+  }
+  .mt-15 {
+    margin-top: 15px;
+  }
+
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  
+{% block content %}
+  {{ content }}
+{% endblock %}

@@ -1,0 +1,7 @@
+agency.register:
+  path: '/agency/register'
+  defaults:
+    _title: 'Create Agency Account'
+    _controller: '\Drupal\agency\Form\AgencyRegisterForm'
+  requirements:
+    _permission: 'access content'

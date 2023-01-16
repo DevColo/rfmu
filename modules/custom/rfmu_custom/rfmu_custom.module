@@ -1,0 +1,178 @@
+<?php
+use Drupal\Core\Database\Database;
+
+function  rfmu_custom_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	
+   // $form['account']['name']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_agency_name']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_agency_type']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_country']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_city']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_address']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['mail']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_about_agency']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['user_picture']['#attributes'] = array('class' => array('form-control'));
+   // $form['account']['field_telephone']['#attributes'] = array('class' => array('form-control'));
+   //dd($form['account']['field_about_agency']);
+   
+}
+// function rfmu_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+// 	if ($form_id == 'node_people-form') {
+// 		dd($form);
+// 	}
+// 	if ($form_id == 'views_form_model_rank_tool_page_1') {
+// 		$form['actions']['save_order']['#value'] =  t('Update Rank');
+// 		$form['actions']['save_order']['#submit'][] = 'rfmu_custom_model_rank_submit';
+// 	}
+// }
+
+
+// function rfmu_custom_model_rank_submit($form, &$form_state){
+// 	$data = $form_state->getValues();
+// 	//dd($form_state);die;
+//     foreach($data['draggableviews'] as $val){	
+// 		$query = \Drupal::database()->select('node__field_model_rank', 'fmr')
+//             ->condition('entity_id', $val['id'])
+//             ->fields('fmr', array('field_model_rank_value'));
+//     	$result = $query->execute()->fetchAll();
+
+//    // $node = \Drupal\node\Entity\Node::load($val['id']);
+//     $node = \Drupal::entityTypeManager()->getStorage('node')->load($val['id']);
+//     //dd($node);die;
+//    // dd($node->field_model_rank->value);die;
+//       $node->changed = REQUEST_TIME;
+//       $node->field_model_rank = $val['weight'];
+//       $node->nid = $val['id'];
+//       $node->save();
+// 	 }
+// 	\Drupal::messenger()->addMessage(t('Models rank successfully updated'));
+// }
+
+// set homepage silder content title field default value
+function  rfmu_custom_form_node_homepage_slider_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	
+	$form['title']['widget'][0]['value']['#default_value'] = 'home_slider';
+  //dd($form);
+}
+
+function getHomeSlider(){
+	$query = \Drupal::database()->select('node_field_data','nfd');
+	$query->join('node__field_slider_caption','nfsc','nfsc.entity_id=nfd.nid');
+	$query->join('taxonomy_term_field_data','ttfd','ttfd.tid=nfsc.field_slider_caption_target_id');
+	$query->condition('nfd.type','homepage_slider');
+	$query->fields('ttfd',['name']);
+	$result = $query->execute()->fetchAll();
+
+	//return theme('home_slider', ['sliders'=>$result]);
+	return array (
+         '#theme' => 'home_slider',
+         '#sliders' => $result,
+      );
+}
+
+
+function rfmu_custom_theme($existing, $type, $theme, $path){
+	global $base_url;
+	$theme = \Drupal::theme()->getActiveTheme();
+		return [
+    		'home_slider' => [
+    			'template' => $base_url.'/'. $theme->getPath().'templates/regions/region--home_slider.html.twig',
+      			'variables' => ['sliders' => NULL],
+    		],
+    		'all-models' => [
+      			'variables' => [
+      				'data' => NULL,
+      				'search_result' => NULL,
+      				'counter' => NULL
+      			],
+      			'render element' => 'form',
+      			'template' =>'all-models',
+    		],
+    		'hometoppeople' => [
+      			'variables' => [
+      				'people' => NULL,
+      			],
+      			'template' =>'hometoppeople.html.twig',
+    		],
+    		'featuredLists' => [
+      			'variables' => [
+      				'featured_models' => NULL,
+      			],
+      			'template' =>'featuredLists.html.twig',
+    		],
+    		'latestBlog' => [
+      			'variables' => [
+      				'featured_models' => NULL,
+      			],
+      			'template' =>'latestBlog.html.twig',
+    		],
+    		'about-us' => [
+      			'template' =>'about-us',
+    		],
+    		'agenciesPage' => [
+    				'variables' => [
+      				'agency' => NULL,
+      			],
+      			'template' =>'agencies-page',
+    		],
+    		'register-models' => [
+    				'variables' => [
+      				//'form' => NULL,
+      			],
+      			'render element' => 'form',
+      			'template' =>'register-models',
+    		],
+    		'model_profile_page' => [
+      			'variables' => [
+      				'model_profile' => NULL,
+               		'first_name' => NULL,
+               		'last_name' => NULL,
+               		'dob' => NULL,
+               		'country_name' => NULL,
+               		'state_name' => NULL,
+               		'model_eyes_color' => NULL,
+               		'model_hair_color' => NULL,
+               		'model_height' => NULL,
+               		'model_phone' => NULL,
+               		'model_profile' => NULL,
+               		'model_shoe' => NULL,
+               		'model_pic' => NULL,
+               		'created' => NULL,
+                    'model_agencies' => NULL
+      			],
+      			'template' =>'model-profile',
+    		],
+    		'agency_profile_page' => [
+      			'variables' => [
+      				'user_account_type' => NULL,
+               		'country_name' => NULL,
+               		'state_name' => NULL,
+               		'agency_bio' => NULL,
+               		'agency_cell' => NULL,
+               		'agency_name' => NULL,
+               		'website' => NULL,
+               		'agency_email' => NULL,
+               		'agency_logo' => NULL,
+               		'created' => NULL,
+                    'my_models_data' => NULL
+      			],
+      			'template' =>'agency-profile',
+    		],
+    		'people_profile_page' => [
+      			'variables' => [
+      				'first_name' => NULL,
+               		'last_name' => NULL,
+               		'dob' => NULL,
+               		'country_name' => NULL,
+               		'state_name' => NULL,
+               		'people_profile' => NULL,
+               		'people_phone' => NULL,
+               		'people_pic' => NULL,
+               		'user_people_role' => NULL,
+               		'created' => NULL,
+      			],
+      			'template' =>'people-profile',
+    		],
+  		];
+
+	}

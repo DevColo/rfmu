@@ -1,0 +1,28 @@
+name: Model theme
+description: 'Rwandan Fashion Model Union theme'
+type: theme
+package: Other
+core_version_requirement: ^8 || ^9
+
+libraries:
+  - model/global-styling
+
+base theme: olivero
+
+regions:
+  header: Header
+  nav_branding: Navigation branding region
+  main_menu: Main Menu Region
+  nav_main: Main navigation region
+  nav_additional: Additional navigation region (eg search form, social icons, etc)
+  home_slider: Homepage Silder
+  breadcrumb: Breadcrumbs
+  content: Main content
+  top_models: Top Models
+  all_models: All Models
+  article: Article
+  left_side_bar: Left Side Bar
+  right_side_bar: Right Side Bar
+  footer: Footer
+
+screenshot: rfmu-white.jpeg

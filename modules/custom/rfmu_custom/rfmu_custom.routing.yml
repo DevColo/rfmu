@@ -1,0 +1,39 @@
+rfmu_custom.all_models:
+  path: '/all-models'
+  defaults:
+    _title: 'All Models'
+    _controller: '\Drupal\rfmu_custom\Controller\RfmuController::getModels'
+  requirements:
+    _permission: 'access content'
+
+rfmu_custom.about-us:
+  path: '/about'
+  defaults:
+    _title: 'About RFMU'
+    _controller: '\Drupal\rfmu_custom\Controller\RfmuController::aboutUsPage'
+  requirements:
+    _permission: 'access content'
+
+rfmu_custom.agencies:
+  path: '/our-agencies'
+  defaults:
+    _title: 'Modeling Agencies'
+    _controller: '\Drupal\rfmu_custom\Controller\RfmuController::agenciesPage'
+  requirements:
+    _permission: 'access content'
+
+rfmu_custom.rfmu_user_account:
+  path: '/rfmu-user/{user_id}'
+  defaults:
+    _title: 'User Profile'
+    _controller: '\Drupal\rfmu_custom\Controller\RfmuController::rfmuUsers'
+  requirements:
+    _permission: 'access content'
+
+rfmu_custom.articles:
+  path: '/articles'
+  defaults:
+    _title: 'Events'
+  requirements: 
+    _permission: 'access content'    
+

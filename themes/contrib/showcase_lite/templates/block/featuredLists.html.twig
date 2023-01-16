@@ -1,0 +1,67 @@
+<style type="text/css">
+ .owl-wrapper{
+    display: inline-flex;
+    margin: auto;
+ }
+ .owl-item{
+    padding: 0px;
+ }
+ img{
+    border-radius: 0;
+ }
+ .carousel-item {
+    /*box-shadow: 0 0 11px #eee;*/
+    margin-bottom: 10px;
+}
+a:hover{
+    text-decoration: none;
+}
+h6.mb-2 {
+    margin-bottom: 2px !important;
+}
+.slogan{
+    width: fit-content;
+    display: block;
+    border-bottom: 0.2px solid #d2cfcf;
+    margin-bottom: 10px;
+}
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+
+</style>
+    <link rel="stylesheet" href="{{ active_theme_path() }}/OwlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ active_theme_path() }}/OwlCarousel/dist/assets/owl.theme.default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<h2 class="block-title">Top Model Lists <a href="{{base_path}}/our-agencies" style="float:right;font-size:13px;">See more >></a></h2>
+
+ 
+<div data-settings="{&quot;grouping&quot;:[],&quot;row_class&quot;:&quot;row&quot;,&quot;default_row_class&quot;:true,&quot;uses_fields&quot;:false,&quot;items&quot;:4,&quot;itemsDesktop&quot;:[20],&quot;itemsDesktopSmall&quot;:[979,3],&quot;itemsTablet&quot;:[768,1],&quot;itemsMobile&quot;:[3],&quot;singleItem&quot;:false,&quot;itemsScaleUp&quot;:false,&quot;slideSpeed&quot;:200,&quot;paginationSpeed&quot;:800,&quot;rewindSpeed&quot;:1000,&quot;autoPlay&quot;:true,&quot;stopOnHover&quot;:false,&quot;navigation&quot;:false,&quot;navigationText&quot;:[&quot;prev&quot;,&quot;next&quot;],&quot;prevText&quot;:&quot;prev&quot;,&quot;nextText&quot;:&quot;next&quot;,&quot;rewindNav&quot;:true,&quot;scrollPerPage&quot;:false,&quot;pagination&quot;:true,&quot;paginationNumbers&quot;:false,&quot;responsive&quot;:true,&quot;responsiveRefreshRate&quot;:200,&quot;mouseDrag&quot;:true,&quot;touchDrag&quot;:true,&quot;transitionStyle&quot;:&quot;fade&quot;}" class="owl-slider-wrapper owl-carousel owl-theme" class="owl-slider-wrapper owl-carousel owl-theme" style="opacity: 1; display: inline-flex;">
+        {% for model in featured_models %}
+            
+                
+    <div class="carousel-item">
+    <a href="{{base_path}}/rfmu-user/{{model.agency_id}}">
+      <div class="carousel-item-image">
+        <img src="{{model.model_profile |file_url}}" class="item-image">
+      </div>
+      <div class="carousel-item-text text-center">
+        <b class="text-black mb-2 text-uppercase">{{model.agency_name }}'s Top Models</b><br>
+        <small class="text-black">Created by: {{model.agency_name}}</small>
+        <img src="{{ active_theme_path()}}/images/verify-icon.png" style="
+    position: relative;
+    width: 9px;
+    display: inline-flex;
+">
+      </div>
+    </a>
+  </div>
+{% endfor %}
+      
+</div>  
+
+
+
+

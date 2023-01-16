@@ -1,0 +1,25 @@
+global-styling:
+  css:
+    theme:
+      assets/plugins/font-awesome/css/font-awesome.min.css: {}
+      assets/plugins/bootstrap/css/bootstrap.min.css: {}
+      assets/pages/css/animate.css: {}  
+      assets/plugins/fancybox/source/jquery.fancybox.css: {}
+      assets/plugins/owl.carousel/assets/owl.carousel.css: {}
+      assets/pages/css/components.css: {}
+      assets/pages/css/slider.css: {}
+      assets/corporate/css/style.css: {}
+      assets/pages/css/portfolio.css: {}
+      assets/corporate/css/style-responsive.css: {}
+      assets/corporate/css/themes/green.css: {}
+      assets/corporate/css/custom.css: {}
+
+  js:
+    assets/plugins/jquery.min.js: {}
+    assets/plugins/jquery-migrate.min.js: {}
+    assets/plugins/bootstrap/js/bootstrap.min.js: {}
+    assets/corporate/scripts/back-to-top.js: {}
+    assets/plugins/fancybox/source/jquery.fancybox.pack.js: {}
+    assets/plugins/owl.carousel/owl.carousel.min.js: {}
+    assets/corporate/scripts/layout.js: {}
+    assets/pages/scripts/bs-carousel.js: {}

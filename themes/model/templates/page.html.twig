@@ -1,0 +1,11 @@
+<!-- Header -->
+{% embed 'region--header.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+<!--End Header -->
+<div class="justify-content-center">
+{{page.content}}
+</div>
+ {% embed 'region--footer.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}

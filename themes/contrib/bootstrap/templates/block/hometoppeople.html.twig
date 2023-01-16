@@ -1,0 +1,100 @@
+<style type="text/css">
+a.list-group-item, button.list-group-item {
+    color: #bdbdbd;
+    width: 100%;
+    margin-top: 10px !important;
+    background: #00000073;
+    border: 1px solid #6b6b6b;
+    margin: auto;
+    margin-right: 20px !important;
+}
+
+#list-example {
+    height: 180px;
+    overflow-y: scroll;
+    margin: auto;
+    float: right;
+    /* transition: 1s; */
+   /* width: 38%;*/
+    /*width: auto;*/
+}
+@media(max-width: 1199px){
+    #list-example {
+    float: none;
+  }
+}
+
+#list-example:before {
+    content: '';
+    background: #0000004a;
+    width: 100%;
+    position: absolute;
+    height: 225%;
+    display: block;
+
+}
+#list-example>.col-lg-5 {
+    float: left;
+    padding-left: 0;
+}
+.list-group-item>.badge {
+    float: right;
+    background: #0a080200;
+}
+a.list-group-item.list-group-item-action {
+    border-radius: 0;
+    color: #fff;
+    border: 1px solid #fff;
+    border-left:0;
+    padding: 6px 15px;
+}
+a.list-group-item.list-group-item-action:hover{
+    color: #000;
+}
+a.list-group-item.list-group-item-action:hover .list-group-item>.badge{
+    color: #000;
+}
+.text-cursive{
+  font-family: cursive;
+}
+.top-msg {
+    margin: auto;
+    position: relative;
+    display: table;
+}
+.my-col {
+    margin: initial;
+    position: absolute;
+    top: 31px;
+    bottom: 0;
+    /* display: table-row-group; */
+    height: fit-content;
+}
+.text-fantasy{
+  font-family: fantasy;
+}
+
+</style>
+<div class="container" id="topbar" style="
+    /*background:url({{ active_theme_path() }}/images/hometop.png);background-position: center;background-size: contain;*/width: 100%;padding: 0;overflow: hidden;border: 1px solid #eee;border-top: none;background:#fff;">
+<div class="row" style="/*background: #00000091;*/">
+<div class="col-lg-6 my-col">
+  <div class="top-msg">
+  <h1 class="text-fantasy">#Rwanda Fashion Models Union</h1>
+  <p class="text-cursive">Explore Fashion In Rwanda</p>
+</div>
+</div>
+<div id="list-example" class="list-group col-lg-6" style="background:url({{ active_theme_path() }}/images/homepic.jpeg);background-position: center;background-size:cover;">
+  <div class="col-lg-5">
+  {% for people in people %}
+  <a class="list-group-item list-group-item-action" href="#list-item-1">{{people.name}}<span class="badge">{{people.counter}}</span></a>
+  {% endfor %}
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+

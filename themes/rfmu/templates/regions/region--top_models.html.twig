@@ -1,0 +1,38 @@
+{% set project = query.entries
+              .type('model')
+              .orderBy('field_model_rank.value ASC')
+              .limit(5)
+              .all()
+           %}
+           {% for model in project %}
+           
+           
+	    			<div class="col-md-3 model-entry ftco-animate">
+		    			<div class="model-img" style="background-image: url({{ model.field_model_profile|file_url }});">
+		    				<div class="name">
+		    					<h3><a href="model-single.html">{{model.title.value}}</a></h3>
+		    				</div>
+		    				<div class="text">
+		    					<h3><a href="model-single.html">{{model.title.value}}</a></h3>
+		    					<div class="d-flex models-info">
+		    						<div class="pr-md-3">
+	                		<p>Height</p>
+	                		<span>{{model.field_model_height.value}}</span>
+	                	</div>
+	                	<div class="pr-md-3">
+	                		<p>Bust</p>
+	                		<span>{{model.field_model_bust.value}}</span>
+	                	</div>
+	                	<div class="pr-md-3">
+	                		<p>Waist</p>
+	                		<span>{{model.field_model_waist.value}}</span>
+	                	</div>
+	                	<div class="pr-md-3">
+	                		<p>Hips</p>
+	                		<span>{{model.field_model_hips.value}}</span>
+	                	</div>
+		    					</div>
+		    				</div>
+		    			</div>
+		    		</div>
+{%endfor%}

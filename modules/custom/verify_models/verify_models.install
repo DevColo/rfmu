@@ -1,0 +1,61 @@
+
+<?php
+use Drupal\Core\Database\Database;
+ 
+/**
+ * Implements hook_schema().
+ */
+function verify_models_schema(){
+    $schema['reg_form'] = array(
+        'description' => 'The table for storing the students data.',
+        'fields' => array(
+            'id' => array(
+                'description' => 'The primary identifier for student',
+                'type' => 'serial',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'admin_id' => array(
+                'type' => 'int',
+                'not null' => TRUE,
+                'unsigned' => TRUE,
+            ),
+            'fname' => array(
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+           'lname' => array(
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ),
+            'email' => array(
+                'type' => 'varchar',
+                'length' => 100,
+                'not null' => TRUE,
+               
+            ),
+            'dob' => array(
+                'type' => 'varchar',
+                'length' => 10,
+                'not null' => TRUE,
+            ),
+            'cell' => array(
+                'type' => 'int',
+                'length' => 14,
+                'not null' => TRUE,
+               
+            ),
+            'gender' => array(
+                'type' => 'int',
+                'length' => 1,
+                'not null' => TRUE,
+            ),
+        ),
+        'primary key' => array('id'),
+    );
+    return $schema;
+}

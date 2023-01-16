@@ -1,0 +1,61 @@
+<style type="text/css">
+  .navbar-default {
+    border-color: #ffffff !important;
+  }
+  @media (min-width: 768px){
+  .navbar {
+    border-radius: 0 !important;
+  }
+}
+  .views-view-grid .views-col {
+    float: left;
+    display: inline-flex;
+}
+span.views-field.views-field-field-tags {
+    height: max-content;
+    /* margin-left: 9px; */
+    background: #4dc337;
+    position: absolute;
+}
+.views-field-field-tags>.field-content>a {
+    color: white;
+    padding: 4px;
+}
+@media(max-width:484px){
+  span.views-field.views-field-title>.field-content {
+    font-size: 22px;
+}
+}
+span.views-field.views-field-title {
+    height: max-content;
+    text-align: center;
+    /* margin-top: 7px; */
+}
+span.views-field.views-field-title>.field-content {
+    font-size: 18px;
+    margin: 10px;
+    margin-top: 0;
+}
+.views-field-title>.field-content>a {
+    color: #4a4a4a;
+}
+</style>
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'clearfix',
+  ]
+%}
+<section{{ attributes.addClass(classes) }} style="margin-top:20px;background:#f8f8f869;">
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</section>

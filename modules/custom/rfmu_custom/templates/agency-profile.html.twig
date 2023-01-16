@@ -1,0 +1,64 @@
+<div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    
+                    <img class="rounded-circle" src="{{agency_logo}}" title="{{ agency_name }}">
+                    <div class="mt-3">
+                      <h4>{{ agency_name }} </h4>
+                      <p class="text-secondary mb-1"><b>{{ user_account_type }}</b></p>
+                      <p class="text-secondary mb-1">{{country_name}}, {{state_name}}</p>
+                      <button class="btn btn-primary">Follow</button>
+                      <button class="btn btn-outline-primary">Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<div class="col-md-8">
+              <div class="tabs">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a href="#profile" data-toggle="tab" aria-expanded="true" >Profile</a>
+                  </li>
+                  <li class="">
+                    <a href="#bio" data-toggle="tab" aria-expanded="false">Bio</a>
+                  </li>
+                  <li class="">
+                    <a href="#models" data-toggle="tab" aria-expanded="false">Models</a>
+                  </li>
+                </ul>
+                <div class="tab-content" style="display: grid;">
+                  <div id="profile" class="tab-pane active">
+                    <p><b>Phone:</b> {{ agency_cell }}</p>
+                    <p><b>Website:</b> {{ agency_website }}</p>
+                    <p><b>Email:</b> {{ agency_email }}</p>
+                    <p><b>Member Since:</b> {{ created }}</p>
+                  </div>
+                  <div id="bio" class="tab-pane active">
+                    <p>{{ agency_bio }}</p>
+                  </div>
+                  <div id="models" class="tab-pane">
+                    {% for agencies in model_agencies %}
+                    
+                    <div class="col-md-3 col-xl-4 pb-40">
+          <a href="{{base_path}}/rfmu-user/{{agencies.agency_id}}">
+          <div class="card card-explore" style="box-shadow: 0 0 7px 0 #eee;">
+            <div class="card-explore__img" style="text-align:center;">
+              <img class="card-img" src="{{agencies.my_agency_pic}}" alt="Agency Logo">
+              
+            </div>
+            <div class="card-body" style="text-align:center;">
+              <b class="card-explore__link">{{agencies.agency_name}}</b>
+            </div>
+          </div>
+        </a>
+
+
+      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+    </div>

@@ -1,0 +1,42 @@
+{%
+set article = query.entries
+.type('article')
+.orderBy('created ASC')
+.limit(3)
+.all()
+%}
+
+<section class="ftco-section">
+	      <div class="container">
+	        <div class="row d-flex">
+	        	<div class="col-md-3 mb-5 heading-section ftco-animate">
+	            <h2 class="mb-4">Up Coming Events</h2>
+	            <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia </p>
+	            <p class="btn-view"><a href="{{base_path}}articles">View more</a></p>
+	          </div>
+	          {% for article in article %}
+	          <div class="col-md-3 d-flex ftco-animate">
+	          	<div class="blog-entry align-self-stretch">
+	              <a href="#" class="block-20" style="background-image: url({{ article.field_image|file_url }});">
+	              </a>
+	              <div class="text pt-4 d-block">
+	              	<div class="meta mb-3">
+	                  <div><a href="#">{{ article.published_at.value|date("F d, Y") }}</a></div>
+	                  <div><a href="#">{{ article.Owner.name.value }}</a></div>
+	                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+	                </div>
+	                {#{% set tid = article.field_tags.target_id %}
+						{% if tid %}
+  							{% set tagName = drupal_field('name', 'taxonomy_term', tid) %}
+  						{% endif %}#}
+	                <h3 class="heading mt-3"><a href="{{base_path}}{{ article.field_tags.entity.name.value }}/{{article.nid.value}}">
+	                	
+	                 {{article.title.value}}</a></h3>
+	              </div>
+	            </div>
+	          </div>
+	         {%endfor%}
+	          
+	        </div>
+	      </div>
+	    </section>
