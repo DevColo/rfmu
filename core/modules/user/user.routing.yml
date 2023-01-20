@@ -146,10 +146,11 @@ user.page:
   requirements:
     _user_is_logged_in: 'TRUE'
 
-user.rfmu_user_account:
-  path: '/rfmu-user'
+user.edit:
+  path: '/user/edit'
   defaults:
-    _title: 'My account'
+    _controller: '\Drupal\user\Controller\UserController::userEditPage'
+    _title: 'Edit account'
   requirements:
     _user_is_logged_in: 'TRUE'
 

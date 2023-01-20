@@ -1,0 +1,17 @@
+<div class="six_box">
+         <div class="container-fluid">
+            <div class="row">
+            {% for model in top_models %}
+               <div class="col-md-2 col-sm-4 pa_left">
+                  <a href="{{base_path}}agency/{{model.agency_id}}">
+                  <div class="six_probpx blue_bg">
+                     <i><img src="{{model.agency_logo}}" alt="{{model.agency_name }} logo"/></i>
+                     <span>{{model.agency_name }}</span>
+                  </div>
+               </a>
+               </div>
+            {%endfor%}
+            </div>
+         </div>
+      </div>
+

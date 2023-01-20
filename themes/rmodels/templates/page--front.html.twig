@@ -27,71 +27,27 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="Los Angeles" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="{{active_theme_path()}}/images/bg1.png" alt="Los Angeles" style="width:100%;">
+        <!-- <div class="carousel-caption d-none d-md-block">
             <h5>Models</h5>
             <p>6</p>
-        </div>
+        </div> -->
       </div>
 
       <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="Chicago" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="{{active_theme_path()}}/images/bg2.png" alt="Chicago" style="width:100%;">
+        <!-- <div class="carousel-caption d-none d-md-block">
             <h5>Actors</h5>
             <p>10</p>
-        </div>
+        </div> -->
       </div>
-    
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
+   
+    <div class="item">
+        <img src="{{active_theme_path()}}/images/bg6.png" alt="New york" style="width:100%;">
+        <!-- <div class="carousel-caption d-none d-md-block">
             <h5>Artists</h5>
             <p>13</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Designers</h5>
-            <p>13</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Entertainers</h5>
-            <p>13</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Hair Stylists</h5>
-            <p>13</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Makeup Artists</h5>
-            <p>13</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Photographers</h5>
-            <p>13</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="{{active_theme_path()}}/images/pic.jpeg" alt="New york" style="width:100%;">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Tailors</h5>
-            <p>13</p>
-        </div>
-      </div>
-    
+        </div> -->
     </div>
 
     <!-- Left and right controls -->
@@ -124,23 +80,30 @@
          </div>
       </section> -->
       <!-- end banner -->
+
+      <!-- featured tops section -->
+      {{ drupal_block('top_models_block')}}
+      <!-- end featured tops section -->
      
+   
      <!-- trending -->
+     {#
 {% embed 'region--trending.html.twig' %}
   {% block content %}{% endblock %}
 {% endembed %}
+#}
 <!--End trending -->
 
       <!-- featured tops section -->
       {{ drupal_block('featured_lists_block')}}
       <!-- end featured tops section -->
       <!-- fashion section -->
-      <div class="fashion" style="background:url({{active_theme_path()}}/images/fashion.jpg);">
+      <div class="fashion" style="background:url({{active_theme_path()}}/images/signup.png);background-position:right;background-size:cover;">
          <div class="container">
             <div class="row">
                <div class="col-md-4 margin-auto text-center">
                   <div class="account-text">
-                     <a href="{{base_path}}">Become A Member</a>
+                     <a href="{{base_path}}register-model">Create Your Model Profile</a>
 
                   </div>
                </div>
@@ -150,24 +113,23 @@
 
       </div>
       <!-- end fashion section -->
+
+      <!-- blog section -->
+      {{ drupal_block('latest_blog_block')}}
+      <!-- end blog section -->
+
       <!-- news section -->
-     {% block content %}
+     {#{% block content %}
           <a id="main-content"></a>
           {{ page.content }}
-        {% endblock %}
+        {% endblock %}#}
       <!-- end news section -->
       <!-- newslatter section -->
       <div  class="newslatter">
          <div class="container">
             <div class="row d_flex">
                <div class="col-md-5">
-                  <h3 class="neslatter">Subscribe To The Newsletter</h3>
-               </div>
-               <div class="col-md-7">
-                  <form class="news_form">
-                     <input class="letter_form" placeholder=" Enter your email" type="text" name="Enter your email">
-                     <button class="sumbit">Subscribe</button>
-                  </form>
+                  <h3 class="neslatter">Our Partners</h3>
                </div>
             </div>
          </div>
@@ -177,22 +139,9 @@
       <div class="three_box">
          <div class="container">
             <div class="row">
-               <div class="col-md-4">
-                  <div class="gift_box">
-                     <i><img src="{{active_theme_path()}}/images/icon_mony.png"></i>
-                     <span>Money Back</span>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="gift_box">
-                     <i><img src="{{active_theme_path()}}/images/icon_gift.png"></i>
-                     <span>Special Gift</span>
-                  </div>
-               </div>
-               <div class="col-md-4">
-                  <div class="gift_box">
-                     <i><img src="{{active_theme_path()}}/images/icon_car.png"></i>
-                     <span>Free Shipping</span>
+               <div class="col-md-2">
+                  <div class="gift_box" style="padding:1px !important;">
+                     <i><img src="{{active_theme_path()}}/images/partner1.jpg" style="margin:auto;"></i>
                   </div>
                </div>
             </div>
@@ -201,47 +150,9 @@
       <!-- end three_box section -->
 
       <!--  footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>INFORMATION </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>MY ACCOUNT </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>ABOUT  </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-                  <div class="col-md-3">
-                     <div class="inror_box">
-                        <h3>CONTACTS  </h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
+{% embed 'region--footer.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
       <!-- end footer -->
       <!-- Javascript files-->
 

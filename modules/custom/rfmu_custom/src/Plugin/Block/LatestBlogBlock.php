@@ -26,7 +26,7 @@ class LatestBlogBlock extends BlockBase {
     $query->fields('nfd',['nid','title','uid']);
     $result = $query->execute()->fetchAll();
  
-    
+   //  dd($result);die;
     $data = [];
     foreach($result as $row){
         $author = User::load($row->uid);
@@ -40,13 +40,15 @@ class LatestBlogBlock extends BlockBase {
         $article_img = $file->getFileUri();
         //dd($article_img);die;
       $data[] = [
+           'article_id' => $row->nid,
            'article_img' => $article_img,
            'article_title' => $row->title,
            'article_body' => $article_body,
-           'article_date' => $article_date
+           'article_date' => $article_date,
+           'author_name' => $author_name
       ];
     }
-   //dd($data);die;
+  // dd($data);die;
 
       return [ 
          '#theme' => 'latestBlog',

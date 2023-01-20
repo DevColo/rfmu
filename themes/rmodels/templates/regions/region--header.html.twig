@@ -31,16 +31,28 @@
          <link rel="stylesheet" href="{{base_path}}{{active_theme_path()}}/css/bootstrap-3.4.1.min.css">
         <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+        <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="{{base_path}}{{active_theme_path()}}/css/bootstrap-3.3.5.min.css">
+  <script src="{{base_path}}{{active_theme_path()}}/js/jQuery-3.6.1.min.js"></script>
+  <script src="{{base_path}}{{active_theme_path()}}/js/jQuery-3.4.1.min.js"></script>
+  <style type="text/css">
+     #search-block-form>#edit-submit{
+      display: none !important;
+     }
+     input[value="Search"] { 
+      display: none !important;
+      }
+  </style>
    </head>
    <!-- body -->
    <body class="main-layout">
       <!-- loader  -->
-      <div class="loader_bg" style="display:none;">
+      <!-- <div class="loader_bg" style="display:none;">
          <div class="loader"><img src="{{base_path}}{{active_theme_path()}}/images/loading.gif" alt="#" /></div>
       </div>
-      <!-- end loader -->
+ -->      <!-- end loader -->
       <!-- header -->
       <header>
          <!-- header inner -->
@@ -49,11 +61,31 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-4">
-                        <ul class="conta_icon ">
-                           <!-- <li><a href="#"><img src="images/call.png" alt="#"/>Call us: 0126 - 922 - 0162</a> </li> -->
-                           <li>
-                              <a href="#" class="order" style="float: left;">Join Now</a>
+                        <ul class="conta_icon " style="margin-bottom: 0;">
+                           {% if logged_in %}
+                           <li class="user-detail-wrap dropdown">
+        <a href="javascript:void(0);" class="" data-toggle="dropdown" style="
+    display: -webkit-box;
+">
+            {% if agency_logo is not empty %}
+              <img class="user-img" style="width:35px;height:35px;border-radius: 17px;" src="{{ agency_logo | file_url }}" data-no-retina="" title="{{user_name}}"><span class="caret"></span>
+            {% else %}
+              <img style="width:40px;height:35px;" src="{{ base_path }}{{ active_theme_path() }}/images/default-user.png" alt="Default Image" title="{{loggedin_user_name}}"><span class="caret"></span>
+            {% endif %}
+            
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ base_path }}rfmu-user/{{user.id}}">My Account</a></li>
+            <li><a href="{{ base_path }}user/{{user.id}}/edit">Edit My Profile</a></li>
+            <li><a href="{{ base_path }}user/logout">Logout</a></li>
+        </ul>
+ </li>
+  {% else %}
+    <li>
+                              <button type="button" data-toggle="modal" data-target="#myModal"  class="order" style="float: left;">Join Now</button>
                            </li>
+  {% endif %}
+                           
                         </ul>
                      </div>
                      <div class="col-md-4">
@@ -66,9 +98,10 @@
                            <li> <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
                               </a>
                            </li> -->
-                           <li><a href="">About Us</a></li>
-                           <li><a href="contact.html">Contact Us</a></li>
-                           <li><a href="">Help</a></li>
+                           <li><a href="{{base_path}}about-us">About Us</a></li>
+                           <li><a href="{{base_path}}contact-us">Contact Us</a></li>
+                           <li><a href="{{base_path}}faqs">FAQs</a></li>
+                           <li><a href="{{base_path}}our-partners">Our Partners</a></li>
                         </ul>
                      </div>
                      <div class="col-md-4">
@@ -99,7 +132,7 @@
                      </div>
                      <div class="col-md-4">
                         <a class="logo" href="{{base_path}}"><img src="{{base_path}}{{active_theme_path()}}/images/rmodels.jpeg" alt="#" width="47" />
-                           <li>Rwanda Fashion Models Union </li>
+                           <li class="d_none1">Rwanda Fashion Models Union </li>
                         </a>
                      </div>
                      <div class="col-md-4">
@@ -115,25 +148,49 @@
                   <div class="row">
                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
+
+{% if logged_in %}
+  {% else %}
+    <div class="user-detail-wrap dropdown login">
+     <a type="button" data-toggle="modal" data-target="#myModal" class="join-logout">Join</a>
+    </div>
+  {% endif %}
+
                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                            <span class="navbar-toggler-icon"></span>
                            </button>
                            <div class="collapse navbar-collapse" id="navbarsExample04">
                               <ul class="navbar-nav mr-auto">
+                                 {% if logged_in %}
+    <li class="user-detail-wrap dropdown user-menu-dropdown">
+        <a href="javascript:void(0);" class="" data-toggle="dropdown" style="
+    display: -webkit-box;
+">
+            {% if agency_logo is not empty %}
+              <img class="user-img" style="width:35px;height:35px;border-radius: 17px;" src="{{ agency_logo | file_url }}" data-no-retina="" title="{{user_name}}"><span class="caret"></span>
+            {% else %}
+              <img style="width:40px;height:35px;" src="{{ base_path }}{{ active_theme_path() }}/images/default-user.png" alt="Default Image" title="{{loggedin_user_name}}"><span class="caret"></span>
+            {% endif %}
+            
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ base_path }}rfmu-user/{{user.id}}" class="text-white">My Account</a></li>
+            <li><a href="{{ base_path }}user/{{user.id}}/edit" class="text-white">Edit My Profile</a></li>
+            <li><a href="{{ base_path }}user/logout" class="text-white">Logout</a></li>
+        </ul>
+ </li>
+  {% endif %}
                                  <li class="nav-item active">
                                     <a class="nav-link" href="{{base_path}}">Home</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="about.html">News</a>
+                                    <a class="nav-link" href="{{base_path}}blog-landing-page">Blog</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="products.html">Agencies</a>
+                                    <a class="nav-link" href="{{base_path}}our-agencies">Agencies</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="fashion.html">People</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="news.html">Models</a>
+                                    <a class="nav-link" href="{{base_path}}people">People</a>
                                  </li>
                               </ul>
                            </div>
@@ -153,3 +210,27 @@
             </div>
          </div>
       </header>
+
+ 
+      <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <a href="{{base_path}}user/login"><p class="text-center login-link">I already have an account. Login</p></a>
+         <a href="{{base_path}}register-agency"> <p class="text-center register-link">Create Agency Account</p></a>
+
+         <a href="{{base_path}}register-model"><p class="text-center register-link">I'm a Model. Create Model Account</p></a>
+
+         <a href="{{base_path}}register-people"><p class="text-center register-link">I'm not a Model, but I want to be a member of RFMU Community( For Photographers, Directors, Designers, and people of other profesions ). Create Member Account</p></a>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>

@@ -23,13 +23,13 @@
                     <a href="#profile" data-toggle="tab" aria-expanded="true" >Profile</a>
                   </li>
                   <li class="">
-                    <a href="#bio" data-toggle="tab" aria-expanded="false">Bio</a>
+                    <a href="#bio" data-toggle="tab" aria-expanded="true">Bio</a>
                   </li>
                   <li class="">
-                    <a href="#models" data-toggle="tab" aria-expanded="false">Agency</a>
+                    <a href="#models" data-toggle="tab" aria-expanded="true">Agency</a>
                   </li>
                 </ul>
-                <div class="tab-content" style="display: grid;">
+                <div class="tab-content" style="">
                   <div id="profile" class="tab-pane active">
                     <p><b>Phone:</b> {{ model_phone }}</p>
                     <p><b>Eyes Color:</b> {{ model_eyes_color }}</p>
@@ -38,7 +38,7 @@
                     <p><b>Shoe Size:</b> {{ model_shoe }}</p>
                     <p><b>Join:</b> {{ created }}</p>
                   </div>
-                  <div id="bio" class="tab-pane active">
+                  <div id="bio" class="tab-pane">
                     <p>{{ model_profile }}</p>
                   </div>
                   <div id="models" class="tab-pane">
@@ -64,3 +64,6 @@
                 </div>
               </div>
     </div>
+
+
+

@@ -272,10 +272,30 @@ class RfmuController extends ControllerBase{
                $model_hair_color = '';
             }
 
-            $model_height = $user->field_model_height[0]->value;
-            $model_phone = $user->field_phone[0]->value;
-            $model_profile = $user->field_profile[0]->value;
-            $model_shoe = $user->field_shoe[0]->value;
+            if(!empty($user->field_model_height[0]->value)){
+               $model_height = $user->field_model_height[0]->value;
+            }else{
+               $model_height = '';
+            }
+
+            if (!empty($user->field_phone[0]->value)) {
+               $model_phone = $user->field_phone[0]->value;
+            }else{
+               $model_phone = '';
+            }
+            
+            if (!empty($user->field_profile[0]->value)) {
+               $model_profile = $user->field_profile[0]->value;
+            }else{
+               $model_profile = '';
+            }
+            
+            if (!empty($user->field_shoe[0]->value)) {
+               $model_shoe = $user->field_shoe[0]->value;
+            }else{
+               $model_shoe = '';
+            }
+            
 
             if(!empty($user->user_picture[0]->target_id)){
               $file = File::load($user->user_picture[0]->target_id);

@@ -10,7 +10,7 @@ dependencies:
   - crop:crop
   - jquery_ui_draggable:jquery_ui_draggable
 
-# Information added by Drupal.org packaging script on 2022-11-01
-version: '2.0.0-alpha1'
+# Information added by Drupal.org packaging script on 2022-12-20
+version: '2.0.0-alpha2'
 project: 'focal_point'
-datestamp: 1667283492
+datestamp: 1671532148

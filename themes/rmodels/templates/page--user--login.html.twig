@@ -1,0 +1,77 @@
+<style> 
+.img-responsive {
+      margin: auto;
+    opacity: 1.5;
+    top: 25px;
+    position: relative;
+    max-width: 30% !important;
+    animation-name: example;
+    animation-duration: 4s;
+    width: 77px;
+    height: 77px !important;
+    border-radius: 100px;
+}
+
+@keyframes example {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+</style>
+<!-- Header -->
+{% embed 'region--header.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+      {% if page.breadcrumb %}
+    <div class="system-messages clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            {{ page.breadcrumb }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+<!--End Header -->
+{# Main #}
+{% block main %}
+  <div role="main" class="main-container col-sm-12 js-quickedit-main-content">
+
+          <aside class="col-sm-7" role="complementary">
+            <img src="{{base_path}}{{active_theme_path()}}/images/rmodels.jpeg" class="img-responsive">
+          </aside>
+
+      {# Content #}
+      {%
+        set content_classes = [
+          page.sidebar_first and page.sidebar_second ? 'col-sm-6',
+          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9',
+          page.sidebar_second and page.sidebar_first is empty ? 'col-sm-9',
+          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12'
+        ]
+      %}
+      <section class="col-sm-5 login-signup-form">
+
+
+        {# Content #}
+        {% block content %}
+          <a id="main-content"></a>
+          <h3 class="text-center">Login</h3>
+          {{ page.content }}
+        {% endblock %}
+      </section>
+
+  </div>
+{% endblock %}
+
+{% if page.footer %}
+  {% block footer %}
+    <footer class="footer" role="contentinfo">
+      {{ page.footer }}
+    </footer>
+  {% endblock %}
+{% endif %}

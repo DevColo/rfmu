@@ -2,7 +2,7 @@
 
 namespace Drupal\focal_point;
 
-use Drupal\crop\Entity\Crop;
+use Drupal\crop\CropInterface;
 use Drupal\file\FileInterface;
 
 /**
@@ -98,12 +98,12 @@ interface FocalPointManagerInterface {
    *   Width of the original image.
    * @param int $height
    *   Height of the original image.
-   * @param \Drupal\crop\Entity\Crop $crop
+   * @param \Drupal\crop\CropInterface $crop
    *   Crop entity for the given file.
    *
-   * @return \Drupal\crop\Entity\Crop
+   * @return \Drupal\crop\CropInterface
    *   Saved crop entity.
    */
-  public function saveCropEntity(float $x, float $y, int $width, int $height, Crop $crop): Crop;
+  public function saveCropEntity(float $x, float $y, int $width, int $height, CropInterface $crop): CropInterface;
 
 }

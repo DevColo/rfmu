@@ -2,6 +2,17 @@
 {% embed 'region--header.html.twig' %}
   {% block content %}{% endblock %}
 {% endembed %}
+      {% if page.breadcrumb %}
+    <div class="system-messages clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            {{ page.breadcrumb }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
 <!--End Header -->
 {# Main #}
 {% block main %}
@@ -71,10 +82,8 @@
   </div>
 {% endblock %}
 
-{% if page.footer %}
-  {% block footer %}
-    <footer class="footer" role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endblock %}
-{% endif %}
+      <!--  footer -->
+{% embed 'region--footer.html.twig' %}
+  {% block content %}{% endblock %}
+{% endembed %}
+      <!-- end footer -->

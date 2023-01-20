@@ -795,7 +795,8 @@ $settings['entity_update_backup'] = TRUE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'rw_models_db',
+  // 'database' => 'rw_models_db',
+  'database' => 'rw_models_lbkup',
   'username' => 'root',
   'password' => 'project360',
   'prefix' => '',

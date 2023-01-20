@@ -91,7 +91,7 @@ class FocalPointManager implements FocalPointManagerInterface {
   /**
    * {@inheritdoc}
    */
-  public function saveCropEntity(float $x, float $y, int $width, int $height, Crop $crop): Crop {
+  public function saveCropEntity(float $x, float $y, int $width, int $height, CropInterface $crop): CropInterface {
     $absolute = $this->relativeToAbsolute($x, $y, $width, $height);
 
     $anchor = $crop->anchor();

@@ -100,9 +100,15 @@ function rfmu_custom_theme($existing, $type, $theme, $path){
       			],
       			'template' =>'featuredLists.html.twig',
     		],
+    		'topModels' => [
+      			'variables' => [
+      				'top_models' => NULL,
+      			],
+      			'template' =>'topModels.html.twig',
+    		],
     		'latestBlog' => [
       			'variables' => [
-      				'featured_models' => NULL,
+      				'article_data' => NULL,
       			],
       			'template' =>'latestBlog.html.twig',
     		],

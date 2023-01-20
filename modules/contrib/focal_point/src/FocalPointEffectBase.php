@@ -358,7 +358,7 @@ abstract class FocalPointEffectBase extends ResizeImageEffect implements Contain
   /**
    * Returns the focal point value (in pixels) relative to the original image.
    *
-   * @param \Drupal\crop\Entity\Crop $crop
+   * @param \Drupal\crop\CropInterface $crop
    *   The crop object used to define the crop.
    * @param \Drupal\focal_point\FocalPointManager $focal_point_manager
    *   The focal point manager.
@@ -366,7 +366,7 @@ abstract class FocalPointEffectBase extends ResizeImageEffect implements Contain
    * @return array
    *   An array with the keys 'x' and 'y'. Values are in pixels.
    */
-  protected function getOriginalFocalPoint(Crop $crop, FocalPointManager $focal_point_manager): array {
+  protected function getOriginalFocalPoint(CropInterface $crop, FocalPointManager $focal_point_manager): array {
     $focal_point = $crop->position();
 
     // Check if we are generating a preview image. If so get the focal point

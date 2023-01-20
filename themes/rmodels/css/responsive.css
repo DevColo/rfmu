@@ -306,8 +306,14 @@
     .navigation.navbar-dark .navbar-toggler-icon {
         background: url(../images/menu_icon1.png);
         background-repeat: no-repeat;
-        width: 64px;
-        height: 44px;
+        width: 50px !important;
+    height: 42px !important;
+    }
+    .user-menu-dropdown{
+        display: block !important;
     }
 }
+.user-menu-dropdown{
+        display: none;
+    }
 

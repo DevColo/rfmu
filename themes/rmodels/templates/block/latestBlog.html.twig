@@ -3,7 +3,7 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
-                     <h2>Letest News</h2>
+                     <h2>Letest News<a href="{{base_path}}models" style="float:right;font-size:13px;">See more >></a></h2>
                   </div>
                </div>
             </div>
@@ -18,12 +18,15 @@
                      </div>
                      <div class="col-md-7">
                         <div class="news_text">
-                           <h3>{{article.article_title}}</h3>
+                           <h3><a href="{{base_path}}article/{{article.article_id}}">{{article.article_title}}</a></h3>
                            <span>{{article.article_date}}</span> 
                            <div class="date_like">
-                              <!-- <span>Like </span><span class="pad_le">Comment</span> -->
+                              <span>Published By: {{article.author_name}} </span><!-- <span class="pad_le">Comment</span> -->
                            </div>
-                           <p>{{article.article_body}}</p>
+                           <p>
+         {% set text = article.article_body|render|striptags %}
+         {{ text|length > 100 ? text|slice(0, 100)|raw ~ '...' : text|raw }}
+                           </p>
                         </div>
                      </div>
                   </div>
