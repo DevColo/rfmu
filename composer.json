@@ -21,6 +21,7 @@
         "drupal/core-recommended": "^9.5",
         "drupal/core-vendor-hardening": "^9.5",
         "drupal/profile": "^1.7",
+        "drupal/smtp": "^1.2",
         "drupal/webform": "^6.1"
     },
     "conflict": {
