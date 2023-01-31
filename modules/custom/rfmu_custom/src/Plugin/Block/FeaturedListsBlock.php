@@ -49,7 +49,7 @@ class FeaturedListsBlock extends BlockBase {
     $query->fields('uln',['field_last_name_value']);
     $query->fields('up',['user_picture_target_id']);
     $query->range(0,4);
-    $query->orderBy('ufd.uid','DESC');
+    $query->orderBy('ufd.uid','ASC');
     $result = $query->execute()->fetchAll();
 
     //dd($result);die;

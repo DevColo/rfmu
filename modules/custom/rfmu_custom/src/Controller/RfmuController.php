@@ -104,7 +104,7 @@ class RfmuController extends ControllerBase{
     $query->fields('ufa',['field_agency_target_id']);
     $query->fields('uln',['field_last_name_value']);
     $query->fields('up',['user_picture_target_id']);
-    $query->range(0,4);
+    //$query->range(0,4);
     $query->orderBy('ufd.uid','DESC');
     $result = $query->execute()->fetchAll();
 
