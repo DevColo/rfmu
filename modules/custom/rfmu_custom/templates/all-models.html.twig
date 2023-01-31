@@ -1,5 +1,6 @@
 <section class="ftco-section-2 mt-5 pb-5">
 <div class="container-fluid">
+	{#
 <form class="form-search form-search-position" method="get">
       <div class="container">
         <div class="row">
@@ -44,10 +45,12 @@
         </div>
       </div>
     </form>
-    <div class="row">
+
+ <div class="row">
 	<div class="col-md-12 text-center">
 		<b>{{search_result}}</b>
 	</div>
+#}
 </div>
 <section class="ftco-section-2 mb-5 pb-5">
 	<div class="container-fluid">
@@ -62,13 +65,17 @@
 	    </div> -->
 	{% for model in data %}	
 	<div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
+		<a href="{{base_path}}rfmu-user/{{model.model_id}}">
                 <em>
-                  <img src="{{ model.uri|file_url }}" alt="Amazing Project" class="img-responsive">
+                  <img src="{{ model.model_profile|file_url }}" alt="{{ model.name_name}}" class="img-responsive">
                 </em>
                 <span class="featured-list">
-                  <p><b>{{ loop.index }}-{{model.title}}</b></p>
-                  <p>{{ model.Owner.field_agency_name.value }}</p>
+                {#  <p><b>{{ loop.index }}-{{model.title}}</b></p> #}
+                 {# <p>{{ model.Owner.field_agency_name.value }}</p> #}
+                 <p>{{ model.model_name}}</p>
+                 <p>{{ model.agency_name}}</p>
                 </span>
+              </a>
         </div>
 	  
 	{% endfor %}

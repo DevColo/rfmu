@@ -1,0 +1,19 @@
+<div class="content-page">
+                <div class="filter-v1">
+                              <div class="row mix-grid thumbnails">
+                       {% for model in featured_models %}       
+              <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
+                <a href="{{base_path}}rfmu-user/{{model.model_id}}">
+                <em>
+                  <img src="{{ model.model_profile|file_url }}" alt="Amazing Project" class="img-responsive">
+                </em>
+                <span class="featured-list">
+                  <p><b>{{ model.model_name }}</b></p>
+                  <p>{{ model.agency_name }}</p>
+                </span>
+              </a>
+              </div>
+              {% endfor %}
+                              </div>
+              </div>
+            </div>

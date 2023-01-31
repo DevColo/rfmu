@@ -17,6 +17,7 @@ regions:
   nav_additional: Additional navigation region (eg search form, social icons, etc)
   home_slider: Homepage Silder
   breadcrumb: Breadcrumbs
+  message: Message
   content: Main content
   top_models: Top Models
   all_models: All Models

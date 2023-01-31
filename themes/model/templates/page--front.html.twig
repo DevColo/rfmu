@@ -34,17 +34,17 @@
                 <div class="item carousel-item-nine">
                     <div class="container">
                         <div class="carousel-position-six">
-                            <h2 class="animate-delay carousel-title-v6 text-uppercase" data-animation="animated fadeInDown">
+                            <!-- <h2 class="animate-delay carousel-title-v6 text-uppercase" data-animation="animated fadeInDown">
                                 Need a fashion Model?
-                            </h2>
-                            <p class="carousel-subtitle-v6 text-uppercase" data-animation="animated fadeInDown">
+                            </h2> -->
+                           <!--  <p class="carousel-subtitle-v6 text-uppercase" data-animation="animated fadeInDown">
                                 This is what you were looking for
-                            </p>
-                            <p class="carousel-subtitle-v7 margin-bottom-30" data-animation="animated fadeInDown">
+                            </p> -->
+                           <!--  <p class="carousel-subtitle-v7 margin-bottom-30" data-animation="animated fadeInDown">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
                                 Sed est nunc, sagittis at consectetur id.
                             </p>
-                            <a class="carousel-btn-green" href="#" data-animation="animated fadeInUp">Book Now!</a>
+                            <a class="carousel-btn-green" href="#" data-animation="animated fadeInUp">Book Now!</a> -->
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                 <div class="item carousel-item-ten">
                     <div class="container">
                         <div class="carousel-position-six">
-                            <h2 class="animate-delay carousel-title-v6 text-uppercase" data-animation="animated fadeInDown">
+                            <!-- <h2 class="animate-delay carousel-title-v6 text-uppercase" data-animation="animated fadeInDown">
                                 Powerful &amp; Clean
                             </h2>
                             <p class="carousel-subtitle-v6 text-uppercase" data-animation="animated fadeInDown">
@@ -62,7 +62,7 @@
                             <p class="carousel-subtitle-v7 margin-bottom-30" data-animation="animated fadeInDown">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/>
                                 Sed est nunc, sagittis at consectetur id.
-                            </p>
+                            </p> -->
                         </div>
                     </div>
                 </div>
@@ -78,27 +78,28 @@
         </div>
     </div>
     <!-- END SLIDER -->
-
+{{page.message}}
     <div class="main">
       <div class="container">
 
         <!-- BEGIN BLOCKQUOTE BLOCK -->   
         <div class="row quote-v1 margin-bottom-30">
           <div class="col-md-9">
-            <span>Lorem ipsum dolor sit amet, dolore eiusmod </span>
+            <span>Do you want to showcase your talent ? </span>
           </div>
           <div class="col-md-3 text-right">
-            <a class="btn-transparent" href="http://www.keenthemes.com/preview/index.php?theme=metronic_admin" target="_blank">Become a Model</a>
+            <a class="btn-transparent" href="{{base_path}}register-model" target="_blank">Become a Model</a>
           </div>
         </div>
         <!-- END BLOCKQUOTE BLOCK -->
 
         <!-- BEGIN RECENT WORKS -->
         <div class="row recent-work margin-bottom-40">
-           <p> <b style ="text-align:center;">TRENDING MODELS</b></p>
-            {% embed 'region--top_models.html.twig' %}
+           <p> <b style ="text-align:center;">NEW MODELS</b></p>
+           {#{% embed 'region--top_models.html.twig' %}
               {% block content %}{% endblock %}
-            {% endembed %}
+            {% endembed %}#}
+            {{ drupal_block('new_models_block')}}
           
         </div>   
 
@@ -107,57 +108,15 @@
           <hr><a href="{{base_url}}all-models" style="float: right;">View Lists ></a>
             <h3 style="">Model Lists</h3>
             <p>Explode our lists of Models from Rwanda Fashion Model Union </p>
+            {{ drupal_block('featured_lists_block')}}
             
-            <div class="content-page">
-                <div class="filter-v1">
-                              <div class="row mix-grid thumbnails">
-                              
-              <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-               <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-               <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-               <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-                              </div>
-              </div>
-            </div>
           </div>
       
           <div class="col-md-12 col-sm-12 text-center">
             <hr>
             <span style="border: 1px solid #dedede;padding: 10px;">
               Do you want to be a member of the fatest growing Agency ?
-              <a class="btn-transparent " href="" target="_blank" >Apply Now</a>
+              <a class="btn-transparent " href="{{base_path}}register-agency" target="_blank" >Apply Now</a>
             </span>
             
         </div>
@@ -166,111 +125,11 @@
           <hr><b style="float: right;">View Lists ></b>
             <h3 style="">Upcoming Events</h3>
             <p>Explode our lists of Models from Rwanda Fashion Model Union </p>
-            <div class="col-md-12 col-sm-9 blog-posts">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                      <!-- BEGIN CAROUSEL -->            
-                      <div class="front-carousel">
-                        <div class="carousel slide" id="myCarousel">
-                          <!-- Carousel items -->
-                          <div class="carousel-inner">
-                            <div class="item">
-                              <img alt="" src="{{ active_theme_path() }}/assets/pages/img/works/img1.jpg">
-                            </div>
-                            <div class="item">
-                              <img alt="" src="{{ active_theme_path() }}/assets/pages/img/works/img2.jpg">
-                            </div>
-                            <div class="item active">
-                              <img alt="" src="{{ active_theme_path() }}/assets/pages/img/works/img3.jpg">
-                            </div>
-                          </div>
-                          <!-- Carousel nav -->
-                          <a data-slide="prev" href="#myCarousel" class="carousel-control left">
-                            <i class="fa fa-angle-left"></i>
-                          </a>
-                          <a data-slide="next" href="#myCarousel" class="carousel-control right">
-                            <i class="fa fa-angle-right"></i>
-                          </a>
-                        </div>                
-                      </div>
-                      <!-- END CAROUSEL -->             
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                      <h2><a href="blog-item.html">Corrupti quos dolores etquas</a></h2>
-                      <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                        <li><i class="fa fa-comments"></i> 17</li>
-                        <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
-                      </ul>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                      <a href="blog-item.html" class="more">Read more <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                  <hr class="blog-post-sep">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                      <img class="img-responsive" alt="" src="{{ active_theme_path() }}/assets/pages/img/works/img4.jpg">
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                      <h2><a href="blog-item.html">Corrupti quos dolores etquas</a></h2>
-                      <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                        <li><i class="fa fa-comments"></i> 17</li>
-                        <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
-                      </ul>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                      <a href="blog-item.html" class="more">Read more <i class="icon-angle-right"></i></a>
-                    </div>
-                  </div>
-                  <hr class="blog-post-sep">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                      <!-- BEGIN VIDEO -->   
-                      <iframe height="205" allowfullscreen="" style="width:100%; border:0" src="{{ active_theme_path() }}/http://player.vimeo.com/video/56974716?portrait=0"></iframe>
-                      <!-- END VIDEO -->   
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                      <h2><a href="blog-item.html">Corrupti quos dolores etquas</a></h2>
-                      <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                        <li><i class="fa fa-comments"></i> 17</li>
-                        <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
-                      </ul>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                      <a href="blog-item.html" class="more">Read more <i class="fa fa-angle-right"></i></a>
-                    </div>
-                  </div>
-                  <hr class="blog-post-sep">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-4">
-                      <img class="img-responsive" alt="" src="{{ active_theme_path() }}/assets/pages/img/works/img2.jpg">
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                      <h2><a href="javascript:;">Corrupti quos dolores etquas</a></h2>
-                      <ul class="blog-info">
-                        <li><i class="fa fa-calendar"></i> 25/07/2013</li>
-                        <li><i class="fa fa-comments"></i> 17</li>
-                        <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
-                      </ul>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
-                      <a href="blog-item.html" class="more">Read more <i class="fa fa-angle-right"></i></a>
-                    </div>
-                  </div>
-                  <hr class="blog-post-sep">
-                  <ul class="pagination">
-                    <li><a href="javascript:;">Prev</a></li>
-                    <li><a href="javascript:;">1</a></li>
-                    <li><a href="javascript:;">2</a></li>
-                    <li class="active"><a href="javascript:;">3</a></li>
-                    <li><a href="javascript:;">4</a></li>
-                    <li><a href="javascript:;">5</a></li>
-                    <li><a href="javascript:;">Next</a></li>
-                  </ul>               
-                </div>
+            {{ drupal_block('latest_blog_block')}}
            
           </div>
 
-             <div class="col-md-12 col-sm-12">
+       <!--  <div class="col-md-12 col-sm-12">
           <hr><b style="float: right;">View Lists ></b>
             <h3 style="">Discover Professional People</h3>
             <p>Explode our lists of Models from Rwanda Fashion Model Union </p>
@@ -318,7 +177,7 @@
                               </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
        
 
@@ -336,53 +195,19 @@
         <!-- BEGIN CLIENTS -->
         <div class="row margin-bottom-40 our-clients">
           <div class="col-md-3">
-            <h2><a href="javascript:;">Top Agencies</a></h2>
-            <p>Lorem dipsum folor margade sitede lametep eiusmod psumquis dolore.</p>
+            <h2><a href="javascript:;">Our Partners</a></h2>
+            <!-- <p>Discover Our top rated Modeling Agencies</p> -->
           </div>
-          <div class="col-md-9">
+              <div class="col-md-9">
             <div class="owl-carousel owl-carousel6-brands">
               <div class="client-item">
                 <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_1.png" class="img-responsive" alt="">
+                  <img src="{{base_path}}{{ active_theme_path() }}/assets/images/partner.jpg" class="img-responsive" alt="">
                 </a>
               </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_2.png" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_3.png" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_4.png" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_5.png" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_6.png" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_7.png" class="img-responsive" alt="">
-                </a>
-              </div>
-              <div class="client-item">
-                <a href="javascript:;">
-                  <img src="{{ active_theme_path() }}/assets/pages/img/clients/client_8.png" class="img-responsive" alt="">
-                </a>
-              </div>                  
+                  
             </div>
-          </div>          
+          </div>     
         </div>
         <!-- END CLIENTS -->
       </div>

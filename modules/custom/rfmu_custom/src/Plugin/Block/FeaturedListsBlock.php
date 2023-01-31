@@ -20,63 +20,55 @@ class FeaturedListsBlock extends BlockBase {
 
   
   public function build() {
-    // $query = \Drupal::database()->select('node_field_data','nfd');
-    // $query->join('node__field_model_rank','mr','mr.entity_id=nfd.nid');
-    // $query->join('node__field_model_profile','mp','mp.entity_id=nfd.nid');
-    // $query->condition('nfd.type', 'model');
-    // $query->condition('nfd.status', 1);
-    // $query->fields('nfd',['nid','title','uid']);
-    // $query->fields('mp',['field_model_profile_target_id']);
-    // $query->orderBy('mr.field_model_rank_value', 'ASC');
-    // $query->groupBy('nfd.uid');
-    // $result = $query->execute()->fetchAll();
-
-    
-    // $data = [];
-    // foreach($result as $row){
-    //     $agency = User::load($row->uid);
-    //     $agency_name = $agency->field_agency_name->value;
+  //   $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+  // //$uid= $user->get('uid')->value;
+  //   if($user->roles[0]->target_id == 'administrator'){
+  //       $user_profile = $user->user_picture[0]->target_id;
+  //       if (!empty($user_profile)) {
+  //           $file = File::load($user_profile);
+  //           $profile = $file->createFileUrl();
+  //       }else{
+  //           $theme = \Drupal::theme()->getActiveTheme();
+  //           $profile = base_path().$theme->getPath().'/images/default-user.png';
+  //       }
+  //       $user_name = $user->name->value;
         
-    //     $file = File::load($row->field_model_profile_target_id);
-    //     $model_profile = $file->getFileUri();
-       
-    //   $data[] = [
-    //        'model_profile' => $model_profile,
-    //        'agency_name' => $agency_name,
-    //        'agency_id' => $row->uid,
-    //   ];
-    // }
+  //   }
+    
     $query = \Drupal::database()->select('users_field_data','ufd');
     $query->join('user__roles','ur','ur.entity_id=ufd.uid');
     $query->join('user__field_first_name','ufn','ufn.entity_id=ufd.uid');
+    $query->join('user__field_agency','ufa','ufa.entity_id=ufd.uid');
     $query->join('user__field_last_name','uln','uln.entity_id=ufd.uid');
     $query->join('user__user_picture','up','up.entity_id=ufd.uid');
     $query->condition('ur.roles_target_id', 'model');
     $query->condition('ufd.status', 1);
     $query->fields('ufd',['uid']);
     $query->fields('ufn',['field_first_name_value']);
+    $query->fields('ufa',['field_agency_target_id']);
     $query->fields('uln',['field_last_name_value']);
     $query->fields('up',['user_picture_target_id']);
-    $query->range(0,8);
+    $query->range(0,4);
     $query->orderBy('ufd.uid','DESC');
     $result = $query->execute()->fetchAll();
 
     //dd($result);die;
     $data = [];
     foreach($result as $row){
-        // $agency = User::load($row->uid);
-        // $agency_name = $agency->field_agency_name->value;
+         $agency = User::load($row->field_agency_target_id);
+         $agency_name = $agency->field_agency_name->value;
         
         $file = File::load($row->user_picture_target_id);
         $model_profile = $file->getFileUri();
        
       $data[] = [
            'model_profile' => $model_profile,
-           'model_name' => $row->field_first_name_value.' '.$row->field_last_name_value,
+           'model_name' => $row->field_last_name_value, //$row->field_first_name_value,
            'model_id' => $row->uid,
+           'agency_name' => $agency_name
       ];
     }
-   // // dd($data);die;
+   //dd($data);die;
 
    //    return [ 
    //       '#theme' => 'topModels',

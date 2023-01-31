@@ -4,13 +4,13 @@
       <div class="row pb-40">
         {% for agency in agency %} 
         <div class="col-md-3 col-xl-4 pb-40">
-          <a href="{{base_path}}/rfmu-user/{{agency.uid}}">
+          <a href="{{base_path}}rfmu-user/{{agency.uid}}">
           <div class="card card-explore" style="box-shadow: 0 0 7px 0 #eee;">
             <div class="card-explore__img" style="text-align:center;">
               {% if agency.logo is not empty %}
-              <img class="card-img" src="{{agency.logo| file_url}}" alt="Agency Logo">
+              <img class="card-img" src="{{agency.logo| file_url}}" alt="Agency Logo" style="margin: auto;">
             {% else %}
-              <img class="card-img" src="{{ base_path }}/{{ active_theme_path() }}/images/default-user.png" alt="Agency Logo">
+              <img class="card-img" src="{{ base_path }}{{ active_theme_path() }}/images/default-user.png" alt="Agency Logo" style="margin: auto;">
             {% endif %}
               
             </div>

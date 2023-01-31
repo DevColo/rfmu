@@ -22,99 +22,114 @@ use Drupal\file\Entity\File;
 
 class RfmuController extends ControllerBase{
 	public function getModels(){
-      $conn = Database::getConnection();
-      $query = $conn->select('node_field_data','nfd');
-      $query->join('node__field_model_bust','mb','mb.entity_id = nfd.nid');
-      $query->join('node__field_model_height','mh','mh.entity_id = nfd.nid');
-      $query->join('node__field_model_hips','mhp','mhp.entity_id = nfd.nid');
-      $query->join('node__field_model_shoe','ms','ms.entity_id = nfd.nid');
-      $query->join('node__field_model_waist','mw','mw.entity_id = nfd.nid');
-      $query->join('node__field_model_profile','mp','mp.entity_id = nfd.nid');
-      $query->join('file_managed','fm','fm.fid=mp.field_model_profile_target_id');
+    
       
-      if(isset($_GET['gender']) && $_GET['gender']!='all'){
-         $sex = $_GET['gender'];
-         $gen = $conn->select('taxonomy_term_field_data','term')->condition('term.tid',$sex)->fields('term',['name']);
-         $gen = $gen->execute()->fetchAll();
+      // if(isset($_GET['gender']) && $_GET['gender']!='all'){
+      //    $sex = $_GET['gender'];
+      //    $gen = $conn->select('taxonomy_term_field_data','term')->condition('term.tid',$sex)->fields('term',['name']);
+      //    $gen = $gen->execute()->fetchAll();
 
-         $query->join('node__field_model_gender','nfmg','nfmg.entity_id=nfd.nid');
-         $query->join('taxonomy_term_field_data','ttfd','ttfd.tid=nfmg.field_model_gender_target_id');
-         $query->condition('ttfd.tid',$sex);
+      //    $query->join('node__field_model_gender','nfmg','nfmg.entity_id=nfd.nid');
+      //    $query->join('taxonomy_term_field_data','ttfd','ttfd.tid=nfmg.field_model_gender_target_id');
+      //    $query->condition('ttfd.tid',$sex);
 
-      }
-      if(isset($_GET['skin']) && $_GET['skin']!='all'){
-         $skin = $_GET['skin'];
-          $com = $conn->select('taxonomy_term_field_data','term')->condition('term.tid',$skin)->fields('term',['name']);
-         $com = $com->execute()->fetchAll();
+      // }
+      // if(isset($_GET['skin']) && $_GET['skin']!='all'){
+      //    $skin = $_GET['skin'];
+      //     $com = $conn->select('taxonomy_term_field_data','term')->condition('term.tid',$skin)->fields('term',['name']);
+      //    $com = $com->execute()->fetchAll();
 
-         $query->join('node__field_model_skin','nfms','nfms.entity_id=nfd.nid');
-         $query->join('taxonomy_term_field_data','ttfd','ttfd.tid=nfms.field_model_skin_target_id');
-         $query->condition('ttfd.tid',$skin);
-      }
-      $query->condition('nfd.type','model');
-      $query->fields('nfd',['title','nid']);
-      $query->fields('mb',['field_model_bust_value']);
-      $query->fields('mh',['field_model_height_value']);
-      $query->fields('mhp',['field_model_hips_value']);
-      $query->fields('ms',['field_model_shoe_value']);
-      $query->fields('mw',['field_model_waist_value']);
-      $query->fields('fm',['uri']);
-
-
-      $result = $query->execute()->fetchAll();
-
-
-
-      // count available rows
-      $num_rows = $query->countQuery()->execute()->fetchAll();
-      $json = Json::encode($result);
-     //dd( $num_rows[0]->expression );die;
-     if(!isset($_GET['page'])){
-     	$page = 1;
-     }else{
-     	$page = $_GET['page'];
-     }
-     $result_per_page = 20;
-     $page_first_result = ($page - 1)* $result_per_page;
-     $num_of_page =ceil($num_rows[0]->expression/$result_per_page);
-
-     $new_result = $query->range($page_first_result,$result_per_page)->execute()->fetchAll();
-      //dd($_GET['gender']); die();
-    // $all_models['all_models'] = \Drupal::formBuilder()->getForm('Drupal\rfmu_custom\Form\RfmuCustomForm');
-
-       if (empty($gen[0]->name)) {
-          $gen = 'All';
-       }else{
-         $gen = $gen[0]->name;
-       }
-       if (empty($com[0]->name)) {
-          $com = 'All';
-       }else{
-         $com = $com[0]->name;
-       }
-        $count =0;
-        $counter=[];
-        for ($i=0; $i < $num_of_page; $i++) { 
-           $count++;
-           array_push($counter,$count);
-        }
-        //dd($counter);die;
-       // No row or not
-       if (empty($num_rows[0]->expression)) {
-          $no_result = 'No Model Found';
-       }else{
-         $no_result = $num_rows[0]->expression.' Available Models';
-       }
+      //    $query->join('node__field_model_skin','nfms','nfms.entity_id=nfd.nid');
+      //    $query->join('taxonomy_term_field_data','ttfd','ttfd.tid=nfms.field_model_skin_target_id');
+      //    $query->condition('ttfd.tid',$skin);
+      // }
       
-       $search_result = 'Search Results: Gender: '.$gen.'  Complexion: '.$com.' | '.$no_result;
+
+// dd($result)
+
+    //   // count available rows
+    //   $num_rows = $query->countQuery()->execute()->fetchAll();
+    //   $json = Json::encode($result);
+    //  //dd( $num_rows[0]->expression );die;
+    //  if(!isset($_GET['page'])){
+    //  	$page = 1;
+    //  }else{
+    //  	$page = $_GET['page'];
+    //  }
+    //  $result_per_page = 20;
+    //  $page_first_result = ($page - 1)* $result_per_page;
+    //  $num_of_page =ceil($num_rows[0]->expression/$result_per_page);
+
+    //  $new_result = $query->range($page_first_result,$result_per_page)->execute()->fetchAll();
+    //   //dd($_GET['gender']); die();
+    // // $all_models['all_models'] = \Drupal::formBuilder()->getForm('Drupal\rfmu_custom\Form\RfmuCustomForm');
+
+    //    if (empty($gen[0]->name)) {
+    //       $gen = 'All';
+    //    }else{
+    //      $gen = $gen[0]->name;
+    //    }
+    //    if (empty($com[0]->name)) {
+    //       $com = 'All';
+    //    }else{
+    //      $com = $com[0]->name;
+    //    }
+    //     $count =0;
+    //     $counter=[];
+    //     for ($i=0; $i < $num_of_page; $i++) { 
+    //        $count++;
+    //        array_push($counter,$count);
+    //     }
+    //     //dd($counter);die;
+    //    // No row or not
+    //    if (empty($num_rows[0]->expression)) {
+    //       $no_result = 'No Model Found';
+    //    }else{
+    //      $no_result = $num_rows[0]->expression.' Available Models';
+    //    }
+      
+    //    $search_result = 'Search Results: Gender: '.$gen.'  Complexion: '.$com.' | '.$no_result;
 
        // dd($search_result);die;
+      $query = \Drupal::database()->select('users_field_data','ufd');
+    $query->join('user__roles','ur','ur.entity_id=ufd.uid');
+    $query->join('user__field_first_name','ufn','ufn.entity_id=ufd.uid');
+    $query->join('user__field_agency','ufa','ufa.entity_id=ufd.uid');
+    $query->join('user__field_last_name','uln','uln.entity_id=ufd.uid');
+    $query->join('user__user_picture','up','up.entity_id=ufd.uid');
+    $query->condition('ur.roles_target_id', 'model');
+    $query->condition('ufd.status', 1);
+    $query->fields('ufd',['uid']);
+    $query->fields('ufn',['field_first_name_value']);
+    $query->fields('ufa',['field_agency_target_id']);
+    $query->fields('uln',['field_last_name_value']);
+    $query->fields('up',['user_picture_target_id']);
+    $query->range(0,4);
+    $query->orderBy('ufd.uid','DESC');
+    $result = $query->execute()->fetchAll();
+
+    //dd($result);die;
+    $data = [];
+    foreach($result as $row){
+         $agency = User::load($row->field_agency_target_id);
+         $agency_name = $agency->field_agency_name->value;
+        
+        $file = File::load($row->user_picture_target_id);
+        $model_profile = $file->getFileUri();
+       
+      $data[] = [
+           'model_profile' => $model_profile,
+           'model_name' => $row->field_last_name_value, //$row->field_first_name_value,
+           'model_id' => $row->uid,
+           'agency_name' => $agency_name
+      ];
+    }
      return [ 
          '#theme' => 'all-models',
-         '#data' => $new_result,
-         '#search_result' => $search_result,
-         '#counter' => $counter,
-         '#form' => $form,
+         '#data' => $data,
+        // '#search_result' => $search_result,
+        // '#counter' => $counter,
+       //  '#form' => $form,
      ];
    }
 
@@ -210,6 +225,7 @@ class RfmuController extends ControllerBase{
 
    function rfmuUsers($user_id){
       $user = User::load($user_id);
+      //dd($user);die;
       if (!empty($user)) {
          if ($user->roles[0]->target_id == 'model') {
             $first_name = $user->field_first_name[0]->value;
@@ -346,7 +362,7 @@ class RfmuController extends ControllerBase{
                '#model_agencies' => $model_agencies
             ];      
          }
-         if ($user->roles[0]->target_id == 'agency') {
+   if ($user->roles[0]->target_id == 'agency' || $user->roles[1]->target_id == 'agency') {
             $account_type = \Drupal\taxonomy\Entity\Term::load($user->field_account_type->target_id);
            if(!empty($account_type)){
              $user_account_type = $account_type->name->value;
@@ -463,7 +479,7 @@ class RfmuController extends ControllerBase{
 
          }
 
-         if ($user->roles[0]->target_id == 'people') {
+   if ($user->roles[0]->target_id == 'people') {
             $first_name = $user->field_first_name[0]->value;
             $last_name = $user->field_last_name[0]->value;
             $dob = strtotime($user->field_date_of_birth[0]->value);
@@ -531,10 +547,10 @@ class RfmuController extends ControllerBase{
                '#user_people_role' => $user_people_role,
             ];      
          }
-         
-         
-         
-      }
+    
+   }else{
+      return 'heyno';
+   }
    }
 }
 

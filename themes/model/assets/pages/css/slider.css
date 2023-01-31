@@ -97,28 +97,28 @@
 
 /* Carousel Item Background Images */
 .carousel-slider .carousel-item-eight {
-    background: url(../../../assets/pages/img/frontend-slider/bg_2.jpg);
+    background: url(../../../assets/images/bg1.png);
     background-size: cover;
     background-position: center center;
 }
 
 .carousel-slider .carousel-item-nine {
-    background: url(../../../assets/pages/img/frontend-slider/bg_3.jpg);
+    background: url(../../../assets/images/bg2.png);
     background-size: cover;
     background-position: center center;
 }
 
 .carousel-slider .carousel-item-ten {
-    background: url(../../../assets/pages/img/frontend-slider/bg_4.jpg);
+    background: url(../../../assets/images/bg4.png);
     background-size: cover;
     background-position: center center;
 }
 
-/*.carousel-slider .carousel-item-eleven {
-    background: url(../../../assets/pages/img/frontend-slider/bg3.jpg);
+.carousel-slider .carousel-item-eleven {
+    background: url(../../../assets/images/bg4.png);
     background-size: cover;
     background-position: center center;
-}*/
+}
 
 /* Carousel Titles */
 .carousel-slider .carousel-title-v1 {

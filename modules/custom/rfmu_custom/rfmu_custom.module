@@ -16,6 +16,11 @@ function  rfmu_custom_form_user_register_form_alter(&$form, \Drupal\Core\Form\Fo
    //dd($form['account']['field_about_agency']);
    
 }
+
+function rfmu_custom_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	//dd($form);die;
+  $form['keys']['#attributes']['placeholder'] = t('find models & agencies');
+}
 // function rfmu_custom_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
 // 	if ($form_id == 'node_people-form') {
 // 		dd($form);
@@ -98,7 +103,13 @@ function rfmu_custom_theme($existing, $type, $theme, $path){
       			'variables' => [
       				'featured_models' => NULL,
       			],
-      			'template' =>'featuredLists.html.twig',
+      			'template' =>'featured_models',
+    		],
+    		'newModels' => [
+      			'variables' => [
+      				'new_models' => NULL,
+      			],
+      			'template' =>'new_models',
     		],
     		'topModels' => [
       			'variables' => [

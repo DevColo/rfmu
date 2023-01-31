@@ -66,12 +66,7 @@ function rmodels_preprocess(&$variables, $hook, $info) {
     $email = '';
   }
     
-  $file = File::load($user->user_picture->target_id);
-  if(!empty($file)){
-    $agency_logo = $file->getFileUri();
-  }else{
-    $agency_logo ='';
-  }
+
   $variables['user_account_type'] = $user_account_type;
   $variables['country_name'] = $country_name;
   $variables['state_name'] = $state_name;

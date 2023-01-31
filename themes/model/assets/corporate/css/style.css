@@ -3080,3 +3080,14 @@ Styler Panel
 .fancybox-opened {
   z-index: 100001;
 }
+
+/**
+ * Custom CSS
+ **/
+.register-link,.login-link{
+     width: 90%;
+    margin: 9px auto;
+    border: 1px solid #ddd;
+    padding: 14px;
+    border-radius: 5px;
+}

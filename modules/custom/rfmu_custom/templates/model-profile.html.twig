@@ -8,8 +8,7 @@
                       <h4>{{ first_name }} {{ last_name }}</h4>
                       <p class="text-secondary mb-1"><b>Model</b></p>
                       <p class="text-secondary mb-1">{{country_name}}, {{state_name}}</p>
-                      <button class="btn btn-primary">Follow</button>
-                      <button class="btn btn-outline-primary">Message</button>
+                      <a style="font-size: 25px;"><i class="fa fa-instagram"></i></a>
                     </div>
                   </div>
                 </div>
@@ -45,7 +44,7 @@
                     {% for agencies in model_agencies %}
                     
                     <div class="col-md-3 col-xl-4 pb-40">
-          <a href="{{base_path}}/rfmu-user/{{agencies.agency_id}}">
+          <a href="{{base_path}}rfmu-user/{{agencies.agency_id}}">
           <div class="card card-explore" style="box-shadow: 0 0 7px 0 #eee;">
             <div class="card-explore__img" style="text-align:center;">
               <img class="card-img" src="{{agencies.my_agency_pic}}" alt="Agency Logo">

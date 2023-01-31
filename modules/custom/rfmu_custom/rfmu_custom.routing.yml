@@ -1,5 +1,5 @@
 rfmu_custom.all_models:
-  path: '/all-models'
+  path: '/people/all-models'
   defaults:
     _title: 'All Models'
     _controller: '\Drupal\rfmu_custom\Controller\RfmuController::getModels'

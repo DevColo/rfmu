@@ -1,0 +1,36 @@
+{#{% set project = query.entries
+              .type('model')
+              .orderBy('field_model_rank.value ASC')
+              .limit(5)
+              .all()
+           %}#}
+           
+<div class="col-md-12">
+            <div class="owl-carousel owl-carousel4 owl-theme owl-loaded" style="display:inline-flex;">
+              {% for model in new_models %}
+              <div class="recent-work-item">
+                <em>
+                  <img src="{{ model.model_profile|file_url }}" alt="{{ model.model_name }}" class="img-responsive" style="max-width:90%;height:;">
+                  <a href="{{base_path}}rfmu-user/{{model.model_id}}"><i class="fa fa-link"></i></a>
+                  <a href="{{ model.field_model_profile|file_url }}" class="fancybox-button" title="Fifi Mugisha" data-rel="fancybox-button"><i class="fa fa-search"></i></a>
+                </em>
+                <a class="recent-work-description" href="javascript:;">
+                  <strong>{{ model.model_name }}</strong>
+                  <b>{{ model.agency_name }}</b>
+                </a>
+              </div>
+              {%endfor%}
+            </div>       
+</div>
+        <!-- <img src="{{base_path}}{{ active_theme_path()}}/images/verify-icon.png" style="
+    position: relative;
+    width: 9px;
+    display: inline-flex;
+"> -->
+
+
+
+
+
+
+

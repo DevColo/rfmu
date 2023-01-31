@@ -48,6 +48,20 @@
   <link href="assets/corporate/css/themes/green.css" rel="stylesheet" id="style-color">
   <link href="assets/corporate/css/custom.css" rel="stylesheet"> -->
   <!-- Theme styles END -->
+      <script src="{{base_path}}{{ active_theme_path() }}/assets/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/corporate/scripts/back-to-top.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/plugins/owl.carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
+
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/corporate/scripts/layout.js" type="text/javascript"></script>
+    <script src="{{base_path}}{{ active_theme_path() }}/assets/pages/scripts/bs-carousel.js" type="text/javascript"></script>
+
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
   <style type="text/css">
     .featured-list{
       text-align: center;
@@ -58,7 +72,12 @@
     .container {
     width: 90% !important;
     max-width: 90% !important;
-}
+    }
+    #search-block-form{
+      position: relative;
+      top: 9px;
+      margin-left: 20px;
+    }
   </style>
 </head>
 <!-- Head END -->
@@ -68,40 +87,59 @@
 
 
     <!-- BEGIN TOP BAR -->
-    <div class="pre-header">
+    <!-- <div class="pre-header">
         <div class="container">
-            <div class="row">
+            <div class="row"> -->
                 <!-- BEGIN TOP BAR LEFT PART -->
-                <div class="col-md-6 col-sm-6 additional-shop-info">
+               <!--  <div class="col-md-6 col-sm-6 additional-shop-info">
                     <ul class="list-unstyled list-inline">
                         <li><i class="fa fa-phone"></i><span>+250780256609
 </span></li>
                         <li><i class="fa fa-envelope-o"></i><span>rwandafashionmodelsunion@gmail.com</span></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- END TOP BAR LEFT PART -->
                 <!-- BEGIN TOP BAR MENU -->
-                <div class="col-md-6 col-sm-6 additional-nav">
+              <!--   <div class="col-md-6 col-sm-6 additional-nav">
                     <ul class="list-unstyled list-inline pull-right">
                         <li><a href="{{base_path}}user/login">Log In</a></li>
                         <li><a href="{{base_path}}register-agency">Create Agency Account</a></li>
                         <li><a href="{{base_path}}model/register">Create Model Account</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- END TOP BAR MENU -->
-            </div>
+    <!--         </div>
         </div>        
-    </div>
+    </div> -->
     <!-- END TOP BAR -->
     <!-- BEGIN HEADER -->
     <div class="header">
       <div class="container">
-       <a class="site-logo" href="{{base_url}}"><img src="{{base_path}}/themes/model/assets/model.jpg" alt="Rwanda Fashion Model Union" style="max-width: 32%;font-size: medium !important;margin:auto;">
+       <a class="site-logo" href="{{base_path}}"><img src="{{base_path}}/themes/model/assets/model.jpg" alt="Rwanda Fashion Model Union" style="max-width: 32%;font-size: medium !important;">
           <!-- <b style="
     font-weight: 100;
     color: #cca40c;
 ">Rwanda Fashion Models Union</b> -->
         </a>
+         {% if logged_in %}
+       <!--                     <li class="user-detail-wrap dropdown">
+        <a href="javascript:void(0);" class="" data-toggle="dropdown" style="
+    display: -webkit-box;
+">
+            {% if agency_logo is not empty %}
+              <img class="user-img" style="width:35px;height:35px;border-radius: 17px;" src="{{ agency_logo | file_url }}" data-no-retina="" title="{{user_name}}"><span class="caret"></span>
+            {% else %}
+              <img style="width:40px;height:35px;" src="{{ base_path }}{{ active_theme_path() }}/images/default-user.png" alt="Default Image" title="{{loggedin_user_name}}"><span class="caret"></span>
+            {% endif %}
+            
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ base_path }}rfmu-user/{{user.id}}">My Account</a></li>
+            <li><a href="{{ base_path }}user/{{user.id}}/edit">Edit My Profile</a></li>
+            <li><a href="{{ base_path }}user/logout">Logout</a></li>
+        </ul>
+ </li> -->
+  {% endif %} 
 
         <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
 
@@ -116,7 +154,7 @@
             </li>
 
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+              <a class="dropdown-toggle" href="{{base_path}}our-agencies">
                 Agencies 
                 
               </a>
@@ -132,60 +170,64 @@
                 
               <ul class="dropdown-menu">
                 <li class="dropdown-submenu">
-                  <a href="index.html">Models <i class="fa fa-angle-right"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="index.html">Second Level Link</a></li>
-                    <li><a href="index.html">Second Level Link</a></li>
-                    <li class="dropdown-submenu">
-                      <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
-                        Second Level Link 
-                        <i class="fa fa-angle-right"></i>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="index.html">Third Level Link</a></li>
-                        <li><a href="index.html">Third Level Link</a></li>
-                        <li><a href="index.html">Third Level Link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <a href="{{base_path}}people/all-models">Models </a>
                 </li>
-                <li><a href="page-about.html">Photographers</a></li>
-                <li><a href="page-about.html">Fashion Editors/Stylist</a></li>
-                <li><a href="page-about.html">Makeup</a></li>
-                <li><a href="page-about.html">Hair Stylists</a></li>
-                <li><a href="page-about.html">Designers</a></li>
+                <li><a href="{{base_path}}people">Photographers</a></li>
+                <li><a href="{{base_path}}people">Fashion Editors/Stylist</a></li>
+                <li><a href="{{base_path}}people">Makeup</a></li>
+                <li><a href="{{base_path}}people">Hair Stylists</a></li>
+                <li><a href="{{base_path}}people">Designers</a></li>
               </ul>
             </li>
-            <li class="dropdown">
+            <!-- <li class="dropdown">
               <a class="dropdown-toggle" href="javascript:;">
                 Vlog 
               </a>
-            </li>
+            </li> -->
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
                 Blog
               </a>
                 
               <ul class="dropdown-menu">
-                <li><a href="portfolio-4.html">Latest News</a></li>
-                <li><a href="portfolio-3.html">Upcoming Events</a></li>
+                <li><a href="{{base_path}}blog-landing-page">Latest News</a></li>
+                <li><a href="{{base_path}}blog-landing-page">Upcoming Events</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" href="javascript:;">
+              <a class="dropdown-toggle" href="{{base_path}}about-us">
                 About RFMU 
               </a>
             </li>
 
              <li class="dropdown dropdown-megamenu">
-              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="{{base_path}}contact-us">
                 Contact Us
                 
               </a>
-            </li>   
+            </li>  
+
+  {% if logged_in %}
+                <li class="dropdown">
+              <a class="dropdown-toggle" href="{{base_path}}user">
+                <i class="fa fa-user"></i>My Account 
+              </a>
+            </li>
+
+             <li class="dropdown dropdown-megamenu">
+              <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="{{base_path}}user/logout">
+                <i class="fa fa-key"></i>Logout
+                
+              </a>
+            </li>             
+  {% else %}
+    <li class="dropdown dropdown-megamenu">
+                              <a type="button" data-toggle="modal" data-target="#myModal"  class="order dropdown-toggle btn btn-primary" style="float: left;">Join</a>
+                           </li>
+  {% endif %} 
 
             <!-- BEGIN TOP SEARCH -->
-            <li class="menu-search">
+            <!-- <li class="menu-search">
               <span class="sep"></span>
               <i class="fa fa-search search-btn"></i>
               <div class="search-box">
@@ -198,11 +240,43 @@
                   </div>
                 </form>
               </div> 
+            </li> -->
+        <!-- BEGIN TOP SEARCH -->
+            <li class="menu-search">
+              <span class="sep"></span>
+              <i class="fa fa-search search-btn"></i>
+              <div class="search-box">
+                {{ drupal_block('search_form_block') }}
+              </div> 
             </li>
-            <!-- END TOP SEARCH -->
+        <!-- END TOP SEARCH -->
           </ul>
         </div>
         <!-- END NAVIGATION -->
       </div>
     </div>
     <!-- Header END -->
+
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <a href="{{base_path}}user/login"><p class="text-center login-link">I already have an account. Login</p></a>
+         <a href="{{base_path}}register-agency"> <p class="text-center register-link">Create Agency Account</p></a>
+
+         <a href="{{base_path}}register-model"><p class="text-center register-link">I'm a Model. Create Model Account</p></a>
+
+         <a href="{{base_path}}register-people"><p class="text-center register-link">I'm not a Model, but I want to be a member of RFMU Community( For Photographers, Directors, Designers, and people of other profesions ). Create Member Account</p></a>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
