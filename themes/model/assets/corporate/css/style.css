@@ -3093,7 +3093,7 @@ Styler Panel
     padding: 14px;
     border-radius: 5px;
 }
-.recent-work .recent-work-item em {
+.recent-work .recent-work-item em{
     display: block;
     overflow: hidden;
     position: relative;
@@ -3216,4 +3216,22 @@ Styler Panel
     color: #fff;
     font-size: 14px !important;
     margin: 12px 5px 8px;
+}
+.all-models-container {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-flow: row wrap;
+}
+.carousel-slider .carousel-control-frontend .fa {
+    background: rgb(255 255 255) !important;
+}
+
+.carousel-slider .carousel-control .fa {
+    width: 29px !important;
+    height: 29px !important;
+    font-size: 18px !important;
+    color: #000000fa !im;
+    background: rgb(255 255 255 / 32%);
+    text-shadow: none;
+    padding: 5px;
 }
