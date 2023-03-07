@@ -803,3 +803,15 @@
 	}
 }
 /* END max width 320px */
+.carousel-slider .item {
+    width: 100%;
+    height: 69%;
+    min-height: 350px;
+}
+body { 
+	/*color: #3e4d5c;*/
+  color: #636363; 
+	direction: ltr;
+	font: 400 13px "Raleway",sans-serif !important; 
+	background: #fff;
+}
