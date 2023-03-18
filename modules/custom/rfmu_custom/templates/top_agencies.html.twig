@@ -1,0 +1,19 @@
+<div class="content-page">
+                <div class="filter-v1">
+                    <div class="row mix-grid thumbnails">
+                    {% for agency in top_agencies %}      
+                      <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
+                        <a href="rfmu-user/{{agency.agency_id}}">
+                        <em>
+                          <img src="{{ agency.agency_logo }}" alt="{{agency.agency_name}}" class="img-responsive">
+                        </em>
+                        <span class="featured-list">
+                          <p><b>{{agency.agency_name}}</b></p>
+                          <!-- <p>Agency</p> -->
+                        </span>
+                      </a>
+                      </div>
+                      {% endfor %}
+                </div>
+              </div>
+            </div>

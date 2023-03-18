@@ -111,11 +111,11 @@ function rfmu_custom_theme($existing, $type, $theme, $path){
       			],
       			'template' =>'new_models',
     		],
-    		'topModels' => [
+    		'topAgencies' => [
       			'variables' => [
-      				'top_models' => NULL,
+      				'top_agencies' => NULL,
       			],
-      			'template' =>'topModels.html.twig',
+      			'template' =>'top_agencies',
     		],
     		'latestBlog' => [
       			'variables' => [

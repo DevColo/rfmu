@@ -24,10 +24,10 @@
                         </div>                
                       </div>            
                     </div> -->
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-3">
                       <img class="img-responsive" alt="" src="{{article.article_img |file_url}}">
                     </div>
-                    <div class="col-md-8 col-sm-8">
+                    <div class="col-md-9 col-sm-9">
                       <h2><a href="{{base_path}}article/{{article.article_id}}">{{article.article_title}}</a></h2>
                       <ul class="blog-info">
                         <li><i class="fa fa-calendar"></i>{{article.article_date}}</li>
@@ -38,8 +38,7 @@
          {{ text|length > 300 ? text|slice(0, 300)|raw ~ '...' : text|raw }}</p>
                       <a href="{{base_path}}article/{{article.article_id}}" class="more">Read more <i class="icon-angle-right"></i></a>
                     </div>
-                  </div>
-                  <hr class="blog-post-sep">
+                  </div><br>
                   {% endfor %}
                  <!--  <ul class="pagination">
                     <li><a href="javascript:;">Prev</a></li>

@@ -7,7 +7,7 @@ use Drupal\Core\Url;
 function model_preprocess(&$variables, $hook, $info) {
  // Bootstrap::preprocess($variables, $hook, $info);
   //$variables['base_path'] = $GLOBALS['base_url'];
-  //$variables['base_url'] = $GLOBALS['base_url'];
+  $variables['base_url'] = $GLOBALS['base_url'];
 
   // $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
   // $uid= $user->get('uid')->value;

@@ -104,18 +104,18 @@
         </div>   
 
         <!-- END RECENT WORKS -->
-         <div class="col-md-12 col-sm-12">
-          <hr><a href="{{base_path}}people/all-models" style="float: right;">View Lists ></a>
+         <div class="col-md-12 col-sm-12" style="padding-top: 40px;">
+         <a href="{{base_path}}people/all-models" style="float: right;">View Lists ></a>
             <h3 style="">Model Lists</h3>
             <p>Explode our lists of Models from Rwanda Fashion Model Union </p>
+             <hr>
             {{ drupal_block('featured_lists_block')}}
             
           </div>
       
-          <div class="col-md-12 col-sm-12 text-center">
-            <hr>
+          <div class="col-md-12 col-sm-12 text-center" style="padding: 30px 0 30px 0;">
             <span>
-                <p style="padding: 10px;box-shadow: 0 0 8px 1px #d0d0d0;width: fit-content;margin: auto;">
+                <p style="padding: 24px;/*box-shadow: 0 0 8px 1px #d0d0d0;*/width: fit-content;margin: auto;border: 1px solid #eee;">
                     Do you want to be a member of the fatest growing Agency ?
               <a class="btn-transparent " href="{{base_path}}register-agency" target="_blank" >Apply Now</a>
                 </p>
@@ -125,62 +125,22 @@
         </div>
 
         <div class="col-md-12 col-sm-12">
-          <hr><b style="float: right;">View Lists ></b>
+         <b style="float: right;">View Lists ></b>
             <h3 style="">Upcoming Events</h3>
             <p>Explode our lists of Models from Rwanda Fashion Model Union </p>
+             <hr>
             {{ drupal_block('latest_blog_block')}}
            
           </div>
 
-       <!--  <div class="col-md-12 col-sm-12">
-          <hr><b style="float: right;">View Lists ></b>
-            <h3 style="">Discover Professional People</h3>
-            <p>Explode our lists of Models from Rwanda Fashion Model Union </p>
+        <div class="col-md-12 col-sm-12" style="padding-top: 80px;">
+          <b style="float: right;"><a href="our-agencies">View Lists ></a></b>
+            <h3 style="">Top Agencies</h3>
+            <p>Explode our lists of Agencies from Rwanda Fashion Model Union </p>
+             <hr>
+            {{ drupal_block('top_agencies_block')}}
             
-            <div class="content-page">
-                <div class="filter-v1">
-                              <div class="row mix-grid thumbnails">
-                              
-              <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-               <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-               <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-               <div class="col-md-3 col-sm-4 mix category_3 mix_all" style="display: block; opacity: 1; ">
-                <em>
-                  <img src="{{ active_theme_path() }}/assets/pages/img/frontend-slider/bg_2.jpg" alt="Amazing Project" class="img-responsive">
-                </em>
-                <span class="featured-list">
-                  <p><b>Fifi Mugisha</b></p>
-                  <p>Agency</p>
-                </span>
-              </div>
-                              </div>
-              </div>
-            </div>
-          </div> -->
+          </div> 
 
        
 
@@ -197,19 +157,19 @@
 
         <!-- BEGIN CLIENTS -->
         <div class="row margin-bottom-40 our-clients">
-          <div class="col-md-3">
-            <h2><a href="javascript:;">Our Partners</a></h2>
+          <div>
+            <h3>Our Partners</h3><hr>
             <!-- <p>Discover Our top rated Modeling Agencies</p> -->
           </div>
-              <div class="col-md-9">
-            <div class="owl-carousel owl-carousel6-brands">
-              <div class="client-item">
-                <a href="javascript:;">
+              <div class="col-md-12" style="display:flex;">
+              <div class="col-md-3">
                   <img src="{{base_path}}{{ active_theme_path() }}/assets/images/partner.jpg" class="img-responsive" alt="">
-                </a>
               </div>
-                  
-            </div>
+              <div class="col-md-3">
+                  <img src="{{base_path}}{{ active_theme_path() }}/assets/images/partner2.jpg" class="img-responsive" alt="" style="    width: 140px;
+    top: 21px;
+    position: relative;">
+              </div>
           </div>     
         </div>
         <!-- END CLIENTS -->
